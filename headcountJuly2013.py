@@ -10,19 +10,12 @@ import time
 #starting timer; basic performance profiling
 start0 = time.time() #Start Loading Timer
 
-wb = load_workbook(filename = r'July 2013 Kronos Headcount Report_working.xlsx') #headcountpyanon #headcounttest
+wb = load_workbook(filename = r'July 2013 Kronos Headcount Report_working.xlsx')
 source = wb.get_sheet_by_name('raw data')
 end = time.time() #End Timer
 
 durLoad = end - start0 #duration to Load
 print durLoad
-
-#Print block for testing: did I actually GET these files input 
-'''
-print wb
-print wb.get_sheet_names()
-print source
-'''
 
 #Building a list of lists; each internal list represents a row of data
 start = time.time() #Start Table creation timer
@@ -320,10 +313,3 @@ for k in range(len(keylist)):
     print hours[1][key][hr]
         
 '''                        
-##I can probably get rid of this. It was just for reference        
-'''
-      
-for r in range(len(table)):
-    for c in range(len(r)):
-        print "Row", r, "Col", c, table[r][c]
-'''
