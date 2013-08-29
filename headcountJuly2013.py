@@ -3,6 +3,8 @@ from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 import time
 
+#MASTER branch: this should become the "clean" version of the file, w/o any commmented-out code
+
 #I created a smaller subset file, 'headcounttest.xlsx', to work around the read/write speed issues during testing
 ##will this path work?: cd 'C:\Users\kidrissa\Documents\Monthly Headcount Schedule\July 2013 Headcount'
     ##Yes, but only from the shell. I'll need to bring in OS Module to make this work in code
