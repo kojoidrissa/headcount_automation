@@ -140,8 +140,12 @@ Needed for each sheet
 
 #####Version 1.0.1 (for running August reports in early September)
 
--Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s; Also, calculate Utilization %s for the entire Functional Area
-    -  from within each Cost Center grouping,
+-  Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s; 
+    -  from within each Cost Center grouping, `makeSubseaTable` and `makeNoSubseaTable`
+        -  after temptable is complete, add CC total footer row? Or create a separate function to process a completed temptable?
+-  Calculate Utilization %s for the entire Functional Area
+    -  Is it better to calculate the Util % for the functional area (which will require the DOE, Project & Total Hours) in the `makeSubseaTable` & `makeNoSubseaTable` functions, or in the `create_tabs` function?
+
 
 -  Optimized reading/writing: 
     -  Compare value of "Optimized" vs. reading/writing by row/column

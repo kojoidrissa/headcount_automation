@@ -120,7 +120,7 @@ def makeSubseaTable(list):
     for row in source.rows:
         ri = source.rows.index(row)
         if row[0].value == 2231: #this is what was missing. I need to test the VALUE of what's in that cell
-            if str(row[1].value) in list:
+            if str(row[1].value) in list: #row[1] is the position of the Cost Center; I should change that to get the index of the name
                 temprow = []
                 for cell in row:
                     ci = source.rows[ri].index(cell)
@@ -147,7 +147,7 @@ def makeNoSubseaTable(list):
     for row in source.rows:
         ri = source.rows.index(row)
         if row[0].value != 2231: #this is what was missing. I need to test the VALUE of what's in that cell
-            if str(row[1].value) in list:
+            if str(row[1].value) in list: #row[1] is the position of the Cost Center; I should change that to get the index of the name
                 temprow = []
                 for cell in row:
                     ci = source.rows[ri].index(cell)
