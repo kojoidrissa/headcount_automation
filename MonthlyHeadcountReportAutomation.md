@@ -160,6 +160,7 @@ Needed for each sheet
 
 ###Selecting columns by Header Name, not Index
 In the following code block, from headcountJuly2013.py:
+
     for row in range(len(source.rows)):
         r =[]
         #adding 'ref' selection tuple dropped loop time on 89 cols from 0.416000 sec to 0.008000
@@ -174,4 +175,9 @@ In the following code block, from headcountJuly2013.py:
     end = time.time() #End Timer
     durTable = end - start #with 1,000 rows, durLoop = datetime.timedelta(0, 47, 16000) or 47 seconds
     
-The code 
+The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that does the following:
+
+-  Finds the required strings in the header row
+-  returns those header indexes in the form of some sort of iterable (not sure what, exactly; would a tuple be better than a list?)
+-  I should probably keeps that sequence of header strings, since I'll want to refer to them later
+
