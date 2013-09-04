@@ -21,7 +21,7 @@ The MAIN purpose of this *Raw Data* sheet is to allow the creation of a pivot ta
     -  Come up with a better update strategy
 
 ###Primary Outputs
--  Raw Data Sheet & Pivot Table
+-  Raw Data Sheet <del>& Pivot Table</del>
 -  Monthly Hdct Summary sheet
 -  Functional Area headcount reports (Engineering, Subsea, Project Controls, etc.)
 
@@ -135,16 +135,35 @@ Needed for each sheet
 ####Style Guidelines for ALL sheets
 -  Sheet Names: Full name of Cost Center grouping
 -  Page Header: *Month* **Year** Headcount Utilization Report; Tab
--  Page Footer: Same as above, with *#/##" in right column
+-  Page Footer: Same as above, with "*#/##*" in right column
 -  Align ALL cells as Right-Aligned
 
-#####Version 1.0.1 (for running August reports in early September)
+###Version 1.0.1 (for running August reports in early September 2013)
 
+####Completion steps for this version
+-  Create the 5 extra columns in Raw Data
+-  After Hdcnt Summary is created: 
+    -  Copy that tab into a new sheet, rename the original to "MHS Original"; name the copy "Monthly Headcount Summary" and work on that 
+    -  Insert two columns b/w 'CC' and 'Employee Num'
+        -  CC
+        -  CC Description
+    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and paste values those amounts in the first of the two added columns; include the 'CC' rows in your filter
+        -  This is a stopgap measure. I need to figure out how to have the CC values come out AS strings, not numbers
+    -  With the CC numbers in place, `VLookup` the Cost Center Descriptions
+-  Use this updated version of Hdcnt Summary as the input for functionalSheets.py
+    -  It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.
+        -  This also highlights the need for me to use header names to generate indcies, instead of hard-coding them. It makes the process too fragile.
+    -  If it doesn't work immediately, I'll have to go back to the manual method of adding in CC Descriptions AFTER functionalSheets.py does it's work
+
+####Changes/Updates meant for this version (this may happen AFTER the reports are complete)
 -  **Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s** 
+    -  Creating a separate function to generate Footer rows for each Cost Center (from a completed funcTable) seems to make the most sense
+        -  I can insert that Footer row in place of the first "spacer" row in the *create_tabs* function: `ws.append(spacer) #One for summation of the section above`
     -  from within each Cost Center grouping, `makeSubseaTable` and `makeNoSubseaTable`
         -  after temptable is complete, add CC total footer row? Or create a separate function to process a completed temptable?
 -  **Calculate Utilization %s for the entire Functional Area**
     -  Is it better to calculate the Util % for the functional area (which will require the DOE, Project & Total Hours) in the `makeSubseaTable` & `makeNoSubseaTable` functions, or in the `create_tabs` function?
+    -  I'll create a separate function to take the Footer rows for each Cost Center, then calcualte the Functional Area totals from those
 
 
 -  Optimized reading/writing: 
