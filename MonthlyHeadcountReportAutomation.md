@@ -140,10 +140,10 @@ Needed for each sheet
 
 #####Version 1.0.1 (for running August reports in early September)
 
--  Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s; 
+-  **Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s** 
     -  from within each Cost Center grouping, `makeSubseaTable` and `makeNoSubseaTable`
         -  after temptable is complete, add CC total footer row? Or create a separate function to process a completed temptable?
--  Calculate Utilization %s for the entire Functional Area
+-  **Calculate Utilization %s for the entire Functional Area**
     -  Is it better to calculate the Util % for the functional area (which will require the DOE, Project & Total Hours) in the `makeSubseaTable` & `makeNoSubseaTable` functions, or in the `create_tabs` function?
 
 
@@ -155,6 +155,11 @@ Needed for each sheet
 ###Version 2: Automating Raw Data creation
 -  Do I need to add the Five Left Columns (*used to get Company, CC and truncated Employee Number*) to Hilton's file before compressing it into the Hdcnt Summary? That workflow MIGHT be artifact of the Excel-based process.
 -  I can probably create the Hdcnt Summary FIRST (*turning ~12K rows of data into ~500*), **then** add in the other columns via EmpNum lookup. Doing it on ~500 rows should be WAY faster than on ~12K rows.
+-  **Figure out how to use Hilton's Kronos file in more of a "raw" format**
+    -  This may require a larger-scale refactoring, as it would change how things are processed from the very beginning.
+    -  having code pull in the manager names and cost centers from the payroll files
+    -  letting code split the Entity/Cost Center info
+    -  Cutting the leading "00" from the Employee Number
 
 ###Version 3: Functional Tab Config File
 
