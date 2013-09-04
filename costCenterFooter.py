@@ -13,7 +13,11 @@ def costCenterFooter(functable):
         ccList.append(i[1])
     ccUnique = set(ccList)
     
-    footer = []
+    ##Here in the 'footer' branch, I'm trying to return JUST the footer dictionary, not appending it to the table
+    ##The goal is to end up with {'cc1':[doeTotal, projTotal}, 'cc2:'[doeTotal, projTotal]...} and return it
+    ##to a new "functFooter" variable, which would be called into the 'create_tabs' function and used to 
+    ##calculate the footer row for each cost center
+    footer = {}
     for cc in ccUnique:
         ccDict = {str(cc):[]}
         sumDoe = 0
@@ -22,10 +26,9 @@ def costCenterFooter(functable):
             if row[1] == cc:
                 sumDoe = sumDoe + row[-5]
                 sumProj = sumProj + row[-4]
-        ccDict[str(cc)].extend([sumDoe, sumProj])
+        ccDict[str(cc)].extend([sumDoe, sumProj]) #StackOverflow helped with this: http://stackoverflow.com/a/3419217 
         footer.append(ccDict)
-    functable.append(footer)
-    return functable
+    return footer
 
 
     
