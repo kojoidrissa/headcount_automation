@@ -1,10 +1,10 @@
 def costCenterFooter(functable):
     '''
-    list of lists --> list of lists
+    list of lists --> dict
 
     Takes in a functional area table (functable), finds it's unique set of Cost Centers,
     then uses that list to create a list of key:value pairs in the format {'costCenter': [sumDOE, sumProj]}
-    That list is appended as the final element of the functable, which is returned
+    Here in the 'footer' branch, I'm trying to return JUST the footer dictionary, not appending it to the table
     '''
 
     #Creating list of unique cost Centers
