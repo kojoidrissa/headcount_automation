@@ -88,7 +88,7 @@ tablist = tab_dict.keys()
 ##This function is intended to create a table of the ENTIRE contents of the headcount summary file
 fullTable = []
 time1 = time.time()
-for row in source.rows:
+for row in source.rows[1:]: #trying to work around problem with 1st row; was 'for row in source.rows'
     ri = source.rows.index(row)
     temprow = []
     for cell in row:
