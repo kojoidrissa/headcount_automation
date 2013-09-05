@@ -26,7 +26,8 @@ def costCenterFooter(functable):
             if row[1] == cc:
                 sumDoe = sumDoe + row[-5]
                 sumProj = sumProj + row[-4]
-        ccDict[str(cc)].extend([sumDoe, sumProj]) #StackOverflow helped with this: http://stackoverflow.com/a/3419217 
+        ccDict[str(cc)].extend([sumDoe, sumProj]) #StackOverflow helped with this: http://stackoverflow.com/a/3419217;
+            #In a later refactor, I should see if the .update method would work here too
         footer.update(ccDict) #using the .update method as per http://stackoverflow.com/a/1165836
     return footer
 
