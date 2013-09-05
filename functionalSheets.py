@@ -192,6 +192,11 @@ def create_tabs(functable, tabname):
     
     #spacer added to create break for manual insertion of Cost Center sum functions
     spacer = [None, None, None, None, None, None, None]
+
+    #bring in my custom Footer code and generate the Footer dictionary for this Functional area
+    import costCenter
+    footer = costCenter(functable)
+
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
         #If this is the FIRST row, append the header, then the row
@@ -202,10 +207,10 @@ def create_tabs(functable, tabname):
         elif headcount_sorted[ri][1] == headcount_sorted[(ri-1)][1]:
             ws.append(r)
         #If this Cost Center is different than the prior row, it's a new Cost Center
-        #insert two spacers, write the header and append the row
+        #insert footer (for the previous Cost Center), one spacer, then write the header and append the row
         else:
-            ws.append(spacer) #One for summation of the section above
-            ws.append(spacer) #One for readability
+            ws.append(footer[str(headcount_sorted[ri-1][1])]) #footer for the previous Cost Center
+            ws.append(spacer) #spacer for readability
             ws.append(header)
             ws.append(r)
                 
