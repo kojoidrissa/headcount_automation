@@ -194,8 +194,14 @@ def create_tabs(functable, tabname):
     spacer = [None, None, None, None, None, None, None]
 
     #bring in my custom Footer code and generate the Footer dictionary for this Functional area
-    import costCenterFooter
-    footer = costCenterFooter(functable)
+    ##since I didn't adjust the Path variable (I'll do that later), costCenterFooter.py had to
+    ##be in the same directory as the files it was working on
+    ###Forgot I need to do moduleName.functionName() when calling a func from a module
+    ###Since I named my module AND function the same thing (I hadn't planned on it being a module)
+    ###I ended up with moduleName.moduleName() 
+
+    import costCenterFooter 
+    footer = costCenterFooter.costCenterFooter(functable)
 
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
