@@ -162,8 +162,11 @@ Needed for each sheet
     -  from within each Cost Center grouping, `makeSubseaTable` and `makeNoSubseaTable`
         -  after temptable is complete, add CC total footer row? Or create a separate function to process a completed temptable?
 -  **Calculate Utilization %s for the entire Functional Area**
-    -  Is it better to calculate the Util % for the functional area (which will require the DOE, Project & Total Hours) in the `makeSubseaTable` & `makeNoSubseaTable` functions, or in the `create_tabs` function?
-    -  I'll create a separate function to take the Footer rows for each Cost Center, then calcualte the Functional Area totals from those
+    -  I'll do this after the August report is done:
+        -  costCenterFooter.py probably needs to be a **module** with multiple functions:
+            -  One that returns ccUnique
+            -  One that returns footer
+            I should be able to use those two results to easily calculate a footer for the entire functional area. But I don't really have time to work on that now (2013-09-05 09:13); I'll work on that after I finish the August reports. Probably on 2013-09-06.
 
 
 -  Optimized reading/writing: 
