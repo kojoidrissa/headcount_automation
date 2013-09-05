@@ -219,17 +219,18 @@ def create_tabs(functable, tabname):
             ws.append(spacer) #spacer for readability
             ws.append(header)
             ws.append(r)
+    ws.append(footer[str(headcount_sorted[ri][1])]) #footer for the FINAL Cost Center
                 
-        #commented this out while testing the ws.append() method
-        #that function seems to work better for my purposes. I need to look at
-        #using it with the headcount.py module
-        '''
-        for c in r:
-            ci = headcount_sorted[ri].index(c)
-            #print "Cell #, Value:", ci, c
-            ws.cell(row = ri, column = ci).value = headcount_sorted[ri][ci]
-        '''
-        
+#commented this out while testing the ws.append() method
+#that function seems to work better for my purposes. I need to look at
+#using it with the headcount.py module
+'''
+for c in r:
+    ci = headcount_sorted[ri].index(c)
+    #print "Cell #, Value:", ci, c
+    ws.cell(row = ri, column = ci).value = headcount_sorted[ri][ci]
+'''   
+
 #My "Main Loop"; running the data through the two functions
 #this is almost DEFINETLY sub-optimal, but it'll have to do for now
 ##Function 1: functionTable ==> makeSubSeaTable/makeNoSubseaTable
