@@ -19,15 +19,18 @@ def costCenterFooter(functable):
     ##calculate the footer row for each cost center
     footer = {}
     for cc in ccUnique:
-        ccDict = {str(cc):[]}
+        ccDict = {str(cc):[None, None, None, None, None]}
         sumDoe = 0
         sumProj = 0
         for row in functable:
             if row[1] == cc:
                 sumDoe = sumDoe + row[-5]
                 sumProj = sumProj + row[-4]
-        ccDict[str(cc)].extend([sumDoe, sumProj]) #StackOverflow helped with this: http://stackoverflow.com/a/3419217;
-            #In a later refactor, I should see if the .update method would work here too
+        #StackOverflow helped with code below: http://stackoverflow.com/a/3419217;
+        #In a later refactor, I should see if the .update method would work here too
+        ccDict[str(cc)].extend([sumDoe, sumProj])
+        totHours = float(sumDoe + sumProj)
+        ccDict[str(cc)].extend([totHours, (sumDoe/totHours), (sumProj/totHours)])    
         footer.update(ccDict) #using the .update method as per http://stackoverflow.com/a/1165836
     return footer
 
