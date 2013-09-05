@@ -88,18 +88,19 @@ tablist = tab_dict.keys()
 ##This function is intended to create a table of the ENTIRE contents of the headcount summary file
 fullTable = []
 time1 = time.time()
-for row in source.rows[1:]: #trying to work around problem with 1st row; was 'for row in source.rows'
+for row in source.rows[1:-1]: #trying to work around problem with 1st and last rows; was 'for row in source.rows'
     ri = source.rows.index(row)
     temprow = []
     for cell in row:
         ci = source.rows[ri].index(cell)
         #print source.rows[ri][ci].value
         temprow.append(source.rows[ri][ci].value)
-    #print temprow #only for debugging purposes; I want to see when/where the float division by zero problem is happening
-    #It seems to be in the "hdcntsum.xlsx" header row, where the DOE & Project columns have '0' in them.
-    #temprow.append(temprow[-1]+temprow[-2]) #Total Hours: sum of DOE & Proj Hours
-    #temprow.append(temprow[-3]/float(temprow[-1])) #DOE Util%; DOE Hours / newly added Total
-    #temprow.append(temprow[-3]/float(temprow[-2])) #Proj Util%; Proj. Hours / Total
+        #print temprow #only for debugging purposes; I want to see when/where the float division by zero problem is happening
+        #It seems to be in the "hdcntsum.xlsx" header row, where the DOE & Project columns have '0' in them.
+        #I'm taking a slice of source.rows to ignore that first row for now
+    temprow.append(temprow[-1]+temprow[-2]) #Total Hours: sum of DOE & Proj Hours
+    temprow.append(temprow[-3]/float(temprow[-1])) #DOE Util%; DOE Hours / newly added Total
+    temprow.append(temprow[-3]/float(temprow[-2])) #Proj Util%; Proj. Hours / Total
     fullTable.append(temprow)
 time2 = time.time()
 print "fullTable Creation Time was ", time2-time1, "seconds."
