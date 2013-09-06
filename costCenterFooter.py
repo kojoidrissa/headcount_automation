@@ -18,8 +18,14 @@ def costCenterFooter(functable):
     ##to a new "functFooter" variable, which would be called into the 'create_tabs' function and used to 
     ##calculate the footer row for each cost center
     footer = {}
+
+    #I'm semi-automating the size of the footer, based on needing it to:
+    #be the same length as the rows in the input functable;
+    #needing it to be blank, but have room to add 5 elements to the end of it
+    #   sumDoe, sumProj, totHours, (sumDoe/totHours), & (sumProj/totHours)
+    ftrBuffr = len(functable[0]) - 5
     for cc in ccUnique:
-        ccDict = {str(cc):[None, None, None, None, None]}
+        ccDict = {str(cc): [None for i in range(ftrBuffr)]}
         sumDoe = 0
         sumProj = 0
         for row in functable:

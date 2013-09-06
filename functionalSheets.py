@@ -192,7 +192,7 @@ def create_tabs(functable, tabname):
     #Updated version uses the APPEND method from http://pythonhosted.org/openpyxl/api.html#module-openpyxl-worksheet-worksheet
     
     #spacer added to create break for manual insertion of Cost Center sum functions
-    spacer = [None, None, None, None, None, None, None]
+    spacer = [None for i in range(len(functable[0]))] #used range in a list comprehension to build this
 
     #bring in my custom Footer code and generate the Footer dictionary for this Functional area
     ##since I didn't adjust the Path variable (I'll do that later), costCenterFooter.py had to
