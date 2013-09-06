@@ -136,7 +136,11 @@ Needed for each sheet
 -  Sheet Names: Full name of Cost Center grouping
 -  Page Header: *Month* **Year** Headcount Utilization Report; Tab
 -  Page Footer: Same as above, with "*#/##*" in right column
--  Align ALL cells as Right-Aligned
+-  Page Orientation: Landscape
+-  Cost Center Headers & footers: **bold**
+-  Utilization columns: % formatted, no decimals
+-  Hours columns: Accounting formatted, no decimals
+-  Align TEXT cells Left-Aligned; HOURS cells Right-Aligned
 
 ###Version 1.0.1 (for running August reports in early September 2013)
 
