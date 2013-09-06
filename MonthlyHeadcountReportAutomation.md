@@ -145,15 +145,18 @@ Needed for each sheet
 ###Version 1.0.1 (for running August reports in early September 2013)
 
 ####Completion steps for this version
+1. Get Kronos headcount reports from Hilton (for 1008, 1902 & 2231)
+2. Combine data from these reports into a single document as the basis for the *Raw Data* document
+3. Supplement *Raw Data* with information from *Weekly Cost Center* reports (from Payroll) and *Cost Centers & Managers* spreadsheet (which I maintain)
 -  Create the 5 extra columns in Raw Data
 -  After Hdcnt Summary is created: 
     -  Copy that tab into a new sheet, rename the original to "MHS Original"; name the copy "Monthly Headcount Summary" and work on that 
     -  Insert two columns b/w 'CC' and 'Employee Num'
         -  CC
         -  CC Description
-    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and paste values those amounts in the first of the two added columns; include the 'CC' rows in your filter
+    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and 'paste values' those results in the first of the two added columns; include the 'CC' rows in your filter
         -  This is a stopgap measure. I need to figure out how to have the CC values come out AS strings, not numbers
-    -  With the CC numbers in place, `VLookup` the Cost Center Descriptions
+    -  With the CC numbers in place, `VLookup` the Cost Center Descriptions and 'paste values' those results
 -  Use this updated version of Hdcnt Summary as the input for functionalSheets.py
     -  It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.
         -  This also highlights the need for me to use header names to generate indcies, instead of hard-coding them. It makes the process too fragile.
