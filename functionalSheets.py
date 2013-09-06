@@ -186,7 +186,7 @@ def create_tabs(functable, tabname):
     ##http://docs.python.org/2/howto/sorting.html#operator-module-functions
     from operator import itemgetter
     ##using Operator module, sorting by Cost Center, then Company, then Emp. Name
-    headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))
+    headcount_sorted = sorted(functable, key = itemgetter(1, 0, 4)) #changed 3rd index from '3' to '4' due to change in Hdcnt Summary
     
     #goes through the sorted nested list, writing it to the spreadsheet in memory
     #Updated version uses the APPEND method from http://pythonhosted.org/openpyxl/api.html#module-openpyxl-worksheet-worksheet
