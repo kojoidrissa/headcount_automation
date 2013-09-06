@@ -163,6 +163,33 @@ Needed for each sheet
         -  This also highlights the need for me to use header names to generate indcies, instead of hard-coding them. It makes the process too fragile.
     -  If it doesn't work immediately, I'll have to go back to the manual method of adding in CC Descriptions AFTER functionalSheets.py does it's work
 
+
+-  Version 1.0.1 results: Headcount
+
+        24.8499999046
+        Loading time for <Worksheet "raw data"> :  24.8499999046
+        Time to create 'Table' from  <Worksheet "raw data"> for 11718 rows and  22 columns:  1.01399993896
+        Loading time for <Worksheet "raw data">  : 24.8499999046
+        11718 Rows;  22 Columns
+        durTable 1.01399993896
+        11718 Rows;  7 Columns
+        durKeylist 0.296999931335
+        durHourlist 1.88700008392
+        durFinalTable 2.74599981308
+        durFinalTableMem 0.0620000362396
+        Writing time for hdcntsum.xlsx  : 0.344000101089
+        445 Rows;  7 Columns
+        durTotal 32.1510000229  
+
+-  Version 1.0.1 results: functionalSheets
+
+        fullTable Creation Time was  43.9909999371 seconds.
+        Creation Time  for all Functional Tables was  67.625 seconds.
+        Creation Time for ALL tabs was  0.25 seconds.
+        Total processing time 113.674999952
+
+
+
 ####Changes/Updates meant for this version (this may happen AFTER the reports are complete)
 -  **Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s** 
     -  Creating a separate function to generate Footer rows for each Cost Center (from a completed funcTable) seems to make the most sense
