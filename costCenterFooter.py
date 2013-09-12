@@ -25,7 +25,7 @@ def costCenterFooter(functable):
     #   sumDoe, sumProj, totHours, (sumDoe/totHours), & (sumProj/totHours)
     ftrBuffr = len(functable[0]) - 5
     for cc in ccUnique:
-        ccDict = {str(cc): [None for i in range(ftrBuffr)]}
+        ccDict = {str(cc): [None for i in range(ftrBuffr)]} #list comprehension here
         sumDoe = 0
         sumProj = 0
         for row in functable:
