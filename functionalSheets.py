@@ -202,9 +202,7 @@ def create_tabs(functable, tabname):
     ###I ended up with moduleName.moduleName() 
 
     import costCenterFooter
-    import deptTotal
     footer = costCenterFooter.costCenterFooter(functable)
-    DeptTotals = deptTotal.deptTotal(footer, tabname)
 
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
@@ -223,7 +221,12 @@ def create_tabs(functable, tabname):
             ws.append(header)
             ws.append(r)
     ws.append(footer[str(headcount_sorted[ri][1])]) #footer for the FINAL Cost Center
-    ws.append(DeptTotals[tabname])
+    
+    #Once all the Cost Centers are done, add in the grand totals for the Functional Area
+    import deptTotal
+    DeptTotals = deptTotal.deptTotal(footer, tabname)
+    ws.append(spacer) #spacer for readability
+    ws.append(DeptTotals[tabname]) #Functional Area Totals & Utilization
                 
 #commented this out while testing the ws.append() method
 #that function seems to work better for my purposes. I need to look at
