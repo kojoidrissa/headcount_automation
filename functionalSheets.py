@@ -205,7 +205,6 @@ def create_tabs(functable, tabname):
     import deptTotal
     footer = costCenterFooter.costCenterFooter(functable)
     DeptTotals = deptTotal.deptTotal(footer, tabname)
-    print DeptTotals, footer
 
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
