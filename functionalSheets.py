@@ -201,8 +201,11 @@ def create_tabs(functable, tabname):
     ###Since I named my module AND function the same thing (I hadn't planned on it being a module)
     ###I ended up with moduleName.moduleName() 
 
-    import costCenterFooter 
+    import costCenterFooter
+    import deptTotal
     footer = costCenterFooter.costCenterFooter(functable)
+    DeptTotals = deptTotal.deptTotal(footer, tabname)
+    print DeptTotals, footer
 
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
@@ -221,6 +224,7 @@ def create_tabs(functable, tabname):
             ws.append(header)
             ws.append(r)
     ws.append(footer[str(headcount_sorted[ri][1])]) #footer for the FINAL Cost Center
+    ws.append(DeptTotals[tabname])
                 
 #commented this out while testing the ws.append() method
 #that function seems to work better for my purposes. I need to look at
