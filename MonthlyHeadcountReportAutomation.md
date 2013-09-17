@@ -247,3 +247,7 @@ The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that do
 -  returns those header indexes in the form of some sort of iterable (not sure what, exactly; would a tuple be better than a list?)
 -  I should probably keeps that sequence of header strings, since I'll want to refer to them later
 
+###Running on the Network Drive
+From within the Canopy shell:
+
+`cd 'M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\<MMMM> <YYYY>\Headcount Misc'`

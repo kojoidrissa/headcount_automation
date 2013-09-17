@@ -20,5 +20,8 @@ def deptTotal(footer, tabname):
     dt_prj = 0
 
     for v in footer.itervalues():
-        dt_doe = dt_doe + v[0]
-        dt_prj = dt_prj + v[1]
+        dt_doe = dt_doe + v[-5] #as currently configured, DOETotal is the -5th element in the footer
+        dt_prj = dt_prj + v[-4] #as currently configured, ProjTotal is the -4th element in the footer
+
+    deptotal = {tabname: [dt_doe, dt_prj]}
+    return deptotal
