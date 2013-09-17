@@ -7,6 +7,13 @@ def deptTotal(footer, tabname):
     which is the footer for a Functional area and a string (tabname);
     returns a dict of the following format:
         deptTotal = {'tabname': [sum_doeTotal, sum_projTotal]}
+
+    TEST
+        footer = {'cc1' : [1, 2], 'cc2' : [1, 2], 'cc3' : [1, 2], 'cc4' : [1, 2], }
+        deptotal = deptTotal(footer, 'Engineering')
+        print deptotal
+        >>> {'Engineering': [4, 8]}
+
     '''
 
     dt_doe = 0
