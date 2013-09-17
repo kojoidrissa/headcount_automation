@@ -3,8 +3,10 @@ def costCenterFooter(functable):
     list of lists --> dict
 
     Takes in a functional area table (functable), finds it's unique set of Cost Centers,
-    then uses that list to create a series of key:value pairs in the format {'costCenter': [sumDOE, sumProj]}
-    Here in the 'footer' branch, I'm trying to return JUST the footer dictionary, not appending it to the table
+    then uses that list to create a series of key:value pairs in the format
+        {'cc1': [sumDOE, sumProj, totHours, DOEUtil, ProjUtil]...'ccN': [sumDOE, sumProj, totHours, DOEUtil, ProjUtil]}
+    Here in the 'footer' branch, I'm trying to JUST return  the footer dictionary, not append it to the table
+    the 'create_tabs' function will handle that, using the key of each pair to append the appropriate value list
     '''
 
     #Creating list of unique cost Centers
