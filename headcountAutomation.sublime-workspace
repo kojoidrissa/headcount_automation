@@ -32,7 +32,7 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/functionalSheets.py",
+			"file": "functionalSheets.py",
 			"settings":
 			{
 				"buffer_size": 14428,
@@ -40,7 +40,7 @@
 			}
 		},
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/costCenterFooter.py",
+			"file": "costCenterFooter.py",
 			"settings":
 			{
 				"buffer_size": 2211,
@@ -48,7 +48,7 @@
 			}
 		},
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/deptTotal.py",
+			"file": "deptTotal.py",
 			"settings":
 			{
 				"buffer_size": 1262,
@@ -56,15 +56,15 @@
 			}
 		},
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/test.py",
+			"file": "test.py",
 			"settings":
 			{
-				"buffer_size": 1801,
+				"buffer_size": 2537,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/MonthlyHeadcountReportAutomation.md",
+			"file": "MonthlyHeadcountReportAutomation.md",
 			"settings":
 			{
 				"buffer_size": 15284,
@@ -72,10 +72,18 @@
 			}
 		},
 		{
-			"file": "/C/Users/kidrissa/headcount_automation/notes.md",
+			"file": "notes.md",
 			"settings":
 			{
 				"buffer_size": 786,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "headcountJuly2013.py",
+			"settings":
+			{
+				"buffer_size": 13048,
 				"line_ending": "Windows"
 			}
 		}
@@ -163,6 +171,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"range",
 			"1]",
 			"ccdict",
 			"functable"
@@ -186,12 +195,12 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/kidrissa/headcount_automation/functionalSheets.py",
+					"file": "functionalSheets.py",
 					"settings":
 					{
 						"buffer_size": 14428,
@@ -201,8 +210,8 @@
 						"selection":
 						[
 							[
-								841,
-								841
+								8310,
+								8277
 							]
 						],
 						"settings":
@@ -212,14 +221,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3480.0,
+						"translation.y": 4067.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/kidrissa/headcount_automation/costCenterFooter.py",
+					"file": "costCenterFooter.py",
 					"settings":
 					{
 						"buffer_size": 2211,
@@ -229,8 +238,8 @@
 						"selection":
 						[
 							[
-								899,
-								899
+								2186,
+								2152
 							]
 						],
 						"settings":
@@ -247,7 +256,7 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/C/Users/kidrissa/headcount_automation/deptTotal.py",
+					"file": "deptTotal.py",
 					"settings":
 					{
 						"buffer_size": 1262,
@@ -275,18 +284,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/C/Users/kidrissa/headcount_automation/test.py",
+					"file": "test.py",
 					"settings":
 					{
-						"buffer_size": 1801,
+						"buffer_size": 2537,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1740,
-								1740
+								0,
+								0
 							]
 						],
 						"settings":
@@ -296,14 +305,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 786.0,
+						"translation.y": 843.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "/C/Users/kidrissa/headcount_automation/MonthlyHeadcountReportAutomation.md",
+					"file": "MonthlyHeadcountReportAutomation.md",
 					"settings":
 					{
 						"buffer_size": 15284,
@@ -331,7 +340,7 @@
 				},
 				{
 					"buffer": 5,
-					"file": "/C/Users/kidrissa/headcount_automation/notes.md",
+					"file": "notes.md",
 					"settings":
 					{
 						"buffer_size": 786,
@@ -351,6 +360,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "headcountJuly2013.py",
+					"settings":
+					{
+						"buffer_size": 13048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6606,
+								6611
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2688.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -414,6 +451,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 182.0,
+	"side_bar_width": 283.0,
 	"status_bar_visible": true
 }
