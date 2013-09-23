@@ -1,0 +1,422 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"creat",
+				"create_tabs"
+			],
+			[
+				"functab",
+				"functable"
+			],
+			[
+				"cost",
+				"costCenterFooter"
+			],
+			[
+				"ri",
+				"ri-1"
+			],
+			[
+				"head",
+				"headcount_sorted"
+			],
+			[
+				"sum",
+				"sumDoe"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "functionalSheets.py",
+			"settings":
+			{
+				"buffer_size": 14428,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "costCenterFooter.py",
+			"settings":
+			{
+				"buffer_size": 2211,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "test.py",
+			"settings":
+			{
+				"buffer_size": 2537,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "MonthlyHeadcountReportAutomation.md",
+			"settings":
+			{
+				"buffer_size": 15284,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "notes.md",
+			"settings":
+			{
+				"buffer_size": 704,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "headcountJuly2013.py",
+			"settings":
+			{
+				"buffer_size": 13048,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pacl",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 576.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/kidrissa/headcount_automation/headcountAutomation.sublime-project",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/kidrissa/headcount_automation/deptTotal.py",
+		"/c/Users/kidrissa/headcount_automation/.git/COMMIT_EDITMSG",
+		"/C/Users/kidrissa/headcount_automation/headcountJuly2013.py",
+		"/C/Users/kidrissa/headcount_automation/copy.sh",
+		"/C/Users/kidrissa/headcount_automation/.gitignore",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Markdown.sublime-settings",
+		"/c/Users/kidrissa/git-test/.git/COMMIT_EDITMSG",
+		"/C/Users/kidrissa/xpdlog.xml",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/MarkdownPreview.sublime-settings",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/LiveReload/LiveReload.sublime-settings",
+		"/C/Users/kidrissa/Documents/Package Control Messages.md",
+		"/C/Users/kidrissa/Documents/WorkQuestions.md",
+		"/C/Users/kidrissa/Documents/Monthly Budget Reviews/Budget Review Meeting Notes 2013-08-28.md",
+		"/C/Users/kidrissa/Documents/Engineering Standards/Engineering Standards Meeting.md",
+		"/C/Users/kidrissa/Documents/Monthly Headcount Report Automation.md",
+		"/C/Users/kidrissa/headcount_automation/README.txt",
+		"/C/Users/kidrissa/headcount_automation/test.txt",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/kidrissa/Documents/Received by Email/README.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"range",
+			"1]",
+			"ccdict",
+			"functable"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"2]",
+			"ccDict",
+			"humaTable"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "functionalSheets.py",
+					"settings":
+					{
+						"buffer_size": 14428,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12102,
+								12102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4067.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "costCenterFooter.py",
+					"settings":
+					{
+						"buffer_size": 2211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1987,
+								1987
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test.py",
+					"settings":
+					{
+						"buffer_size": 2537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 843.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "MonthlyHeadcountReportAutomation.md",
+					"settings":
+					{
+						"buffer_size": 15284,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13215,
+								13215
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "notes.md",
+					"settings":
+					{
+						"buffer_size": 704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								650,
+								650
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "headcountJuly2013.py",
+					"settings":
+					{
+						"buffer_size": 13048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2152,
+								2152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 684.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 283.0,
+	"status_bar_visible": true
+}
