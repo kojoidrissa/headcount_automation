@@ -189,7 +189,7 @@ def create_tabs(functable, tabname):
     
     import sortCriteria #generates itemgetter keys based on the header values, instead of hardcoding them
     sort_by = sortCriteria.sort_criteria(source.rows[0]) 
-    headcount_sorted = sorted(functable, key = itemgetter(sort_by)) 
+    headcount_sorted = sorted(functable, key = itemgetter(sort_by[0], sort_by[1], sort_by[2]))
     
     #goes through the sorted nested list, writing it to the spreadsheet in memory
     #Updated version uses the APPEND method from http://pythonhosted.org/openpyxl/api.html#module-openpyxl-worksheet-worksheet
