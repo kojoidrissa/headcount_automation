@@ -133,27 +133,62 @@ Needed for each sheet
     -  This is the slowest part of the manual process, but still useful. Most managers don't know their Cost Center numbers. Neither do I!
 
 ####Style Guidelines for ALL sheets
--  Sheet Names: Full name of Cost Center grouping
--  Page Header: *Month* **Year** Headcount Utilization Report; Tab
--  Page Footer: Same as above, with "*#/##*" in right column
--  Align ALL cells as Right-Aligned
+-  Utilization columns: % formatted, no decimals
+-  Hours columns: Accounting formatted, no decimals
+-  Cost Center Headers & footers: **bold**
+-  Align TEXT cells Left-Aligned; HOURS cells Right-Aligned
+-  Print Optimization: Last Step
+    -  Page Header: *Month* **Year** Headcount Utilization Report; Tab
+    -  Page Footer: Same as above, with "*#/##*" in right column
+    -  Page Orientation: Landscape
 
 ###Version 1.0.1 (for running August reports in early September 2013)
 
 ####Completion steps for this version
+1. Get Kronos headcount reports from Hilton (for 1008, 1902 & 2231)
+2. Combine data from these reports into a single document as the basis for the *Raw Data* document
+3. Supplement *Raw Data* with information from *Weekly Cost Center* reports (from Payroll) and *Cost Centers & Managers* spreadsheet (which I maintain)
 -  Create the 5 extra columns in Raw Data
 -  After Hdcnt Summary is created: 
     -  Copy that tab into a new sheet, rename the original to "MHS Original"; name the copy "Monthly Headcount Summary" and work on that 
     -  Insert two columns b/w 'CC' and 'Employee Num'
         -  CC
         -  CC Description
-    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and paste values those amounts in the first of the two added columns; include the 'CC' rows in your filter
+    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and 'paste values' those results in the first of the two added columns; include the 'CC' rows in your filter
         -  This is a stopgap measure. I need to figure out how to have the CC values come out AS strings, not numbers
-    -  With the CC numbers in place, `VLookup` the Cost Center Descriptions
+    -  With the CC numbers in place, `VLookup` the Cost Center Descriptions and 'paste values' those results
 -  Use this updated version of Hdcnt Summary as the input for functionalSheets.py
-    -  It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.
+    -  <del>It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.</del> I've semi-succesfully fixed this so it creaes the indeces from the header row.
+        -  I ALSO needed to adjust the size of the Footer rows to be one longer. That led me to also make the spacer rows longer AND to figure out how to generate each of those lists programmatically, instead of manually. List comprehensions (and [StackOverflow](http://stackoverflow.com/a/10712032)) to the resucue! 
         -  This also highlights the need for me to use header names to generate indcies, instead of hard-coding them. It makes the process too fragile.
     -  If it doesn't work immediately, I'll have to go back to the manual method of adding in CC Descriptions AFTER functionalSheets.py does it's work
+
+
+-  Version 1.0.1 results: Headcount
+
+        24.8499999046
+        Loading time for <Worksheet "raw data"> :  24.8499999046
+        Time to create 'Table' from  <Worksheet "raw data"> for 11718 rows and  22 columns:  1.01399993896
+        Loading time for <Worksheet "raw data">  : 24.8499999046
+        11718 Rows;  22 Columns
+        durTable 1.01399993896
+        11718 Rows;  7 Columns
+        durKeylist 0.296999931335
+        durHourlist 1.88700008392
+        durFinalTable 2.74599981308
+        durFinalTableMem 0.0620000362396
+        Writing time for hdcntsum.xlsx  : 0.344000101089
+        445 Rows;  7 Columns
+        durTotal 32.1510000229  
+
+-  Version 1.0.1 results: functionalSheets
+
+        fullTable Creation Time was  43.9909999371 seconds.
+        Creation Time  for all Functional Tables was  67.625 seconds.
+        Creation Time for ALL tabs was  0.25 seconds.
+        Total processing time 113.674999952
+
+
 
 ####Changes/Updates meant for this version (this may happen AFTER the reports are complete)
 -  **Create a Footer for each Cost Center, with CC totals for DOE, Project, Total Hours, and Utilization %s** 
@@ -162,8 +197,11 @@ Needed for each sheet
     -  from within each Cost Center grouping, `makeSubseaTable` and `makeNoSubseaTable`
         -  after temptable is complete, add CC total footer row? Or create a separate function to process a completed temptable?
 -  **Calculate Utilization %s for the entire Functional Area**
-    -  Is it better to calculate the Util % for the functional area (which will require the DOE, Project & Total Hours) in the `makeSubseaTable` & `makeNoSubseaTable` functions, or in the `create_tabs` function?
-    -  I'll create a separate function to take the Footer rows for each Cost Center, then calcualte the Functional Area totals from those
+    -  I'll do this after the August report is done:
+        -  costCenterFooter.py probably needs to be a **module** with multiple functions:
+            -  One that returns ccUnique
+            -  One that returns footer
+            I should be able to use those two results to easily calculate a footer for the entire functional area. But I don't really have time to work on that now (2013-09-05 09:13); I'll work on that after I finish the August reports. Probably on 2013-09-06.
 
 
 -  Optimized reading/writing: 
@@ -209,3 +247,7 @@ The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that do
 -  returns those header indexes in the form of some sort of iterable (not sure what, exactly; would a tuple be better than a list?)
 -  I should probably keeps that sequence of header strings, since I'll want to refer to them later
 
+###Running on the Network Drive
+From within the Canopy shell:
+
+`cd 'M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\<MMMM> <YYYY>\Headcount Misc'`

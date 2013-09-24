@@ -88,18 +88,19 @@ tablist = tab_dict.keys()
 ##This function is intended to create a table of the ENTIRE contents of the headcount summary file
 fullTable = []
 time1 = time.time()
-for row in source.rows:
+for row in source.rows[1:-1]: #trying to work around problem with 1st and last rows; was 'for row in source.rows'
     ri = source.rows.index(row)
     temprow = []
     for cell in row:
         ci = source.rows[ri].index(cell)
         #print source.rows[ri][ci].value
         temprow.append(source.rows[ri][ci].value)
-    #print temprow #only for debugging purposes; I want to see when/where the float division by zero problem is happening
-    #It seems to be in the "hdcntsum.xlsx" header row, where the DOE & Project columns have '0' in them.
-    #temprow.append(temprow[-1]+temprow[-2]) #Total Hours: sum of DOE & Proj Hours
-    #temprow.append(temprow[-3]/float(temprow[-1])) #DOE Util%; DOE Hours / newly added Total
-    #temprow.append(temprow[-3]/float(temprow[-2])) #Proj Util%; Proj. Hours / Total
+        #print temprow #only for debugging purposes; I want to see when/where the float division by zero problem is happening
+        #It seems to be in the "hdcntsum.xlsx" header row, where the DOE & Project columns have '0' in them.
+        #I'm taking a slice of source.rows to ignore that first row for now
+    temprow.append(temprow[-1]+temprow[-2]) #Total Hours: sum of DOE & Proj Hours
+    temprow.append(temprow[-3]/float(temprow[-1])) #DOE Util%; DOE Hours / newly added Total
+    temprow.append(temprow[-3]/float(temprow[-2])) #Proj Util%; Proj. Hours / Total
     fullTable.append(temprow)
 time2 = time.time()
 print "fullTable Creation Time was ", time2-time1, "seconds."
@@ -185,13 +186,27 @@ def create_tabs(functable, tabname):
     ##http://docs.python.org/2/howto/sorting.html#operator-module-functions
     from operator import itemgetter
     ##using Operator module, sorting by Cost Center, then Company, then Emp. Name
-    headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))
+    
+    import sortCriteria #generates itemgetter keys based on the header values, instead of hardcoding them
+    sort_by = sortCriteria.sort_criteria(source.rows[0]) 
+    headcount_sorted = sorted(functable, key = itemgetter(sort_by[0], sort_by[1], sort_by[2]))
     
     #goes through the sorted nested list, writing it to the spreadsheet in memory
     #Updated version uses the APPEND method from http://pythonhosted.org/openpyxl/api.html#module-openpyxl-worksheet-worksheet
     
     #spacer added to create break for manual insertion of Cost Center sum functions
-    spacer = [None, None, None, None, None, None, None]
+    spacer = [None for i in range(len(functable[0]))] #used range in a list comprehension to build this
+
+    #bring in my custom Footer code and generate the Footer dictionary for this Functional area
+    ##since I didn't adjust the Path variable (I'll do that later), costCenterFooter.py had to
+    ##be in the same directory as the files it was working on
+    ###Forgot I need to do moduleName.functionName() when calling a func from a module
+    ###Since I named my module AND function the same thing (I hadn't planned on it being a module)
+    ###I ended up with moduleName.moduleName() 
+
+    import costCenterFooter
+    footer = costCenterFooter.costCenterFooter(functable)
+
     for r in headcount_sorted:
         ri = headcount_sorted.index(r)
         #If this is the FIRST row, append the header, then the row
@@ -202,23 +217,30 @@ def create_tabs(functable, tabname):
         elif headcount_sorted[ri][1] == headcount_sorted[(ri-1)][1]:
             ws.append(r)
         #If this Cost Center is different than the prior row, it's a new Cost Center
-        #insert two spacers, write the header and append the row
+        #insert footer (for the previous Cost Center), one spacer, then write the header and append the row
         else:
-            ws.append(spacer) #One for summation of the section above
-            ws.append(spacer) #One for readability
+            ws.append(footer[str(headcount_sorted[ri-1][1])]) #footer for the previous Cost Center
+            ws.append(spacer) #spacer for readability
             ws.append(header)
             ws.append(r)
+    ws.append(footer[str(headcount_sorted[ri][1])]) #footer for the FINAL Cost Center
+    
+    #Once all the Cost Centers are done, add in the grand totals for the Functional Area
+    import deptTotal
+    DeptTotals = deptTotal.deptTotal(footer, tabname)
+    ws.append(spacer) #spacer for readability
+    ws.append(DeptTotals[tabname]) #Functional Area Totals & Utilization
                 
-        #commented this out while testing the ws.append() method
-        #that function seems to work better for my purposes. I need to look at
-        #using it with the headcount.py module
-        '''
-        for c in r:
-            ci = headcount_sorted[ri].index(c)
-            #print "Cell #, Value:", ci, c
-            ws.cell(row = ri, column = ci).value = headcount_sorted[ri][ci]
-        '''
-        
+#commented this out while testing the ws.append() method
+#that function seems to work better for my purposes. I need to look at
+#using it with the headcount.py module
+'''
+for c in r:
+    ci = headcount_sorted[ri].index(c)
+    #print "Cell #, Value:", ci, c
+    ws.cell(row = ri, column = ci).value = headcount_sorted[ri][ci]
+'''   
+
 #My "Main Loop"; running the data through the two functions
 #this is almost DEFINETLY sub-optimal, but it'll have to do for now
 ##Function 1: functionTable ==> makeSubSeaTable/makeNoSubseaTable

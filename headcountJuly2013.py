@@ -12,7 +12,7 @@ import time
 #starting timer; basic performance profiling
 start0 = time.time() #Start Loading Timer
 
-wb = load_workbook(filename = r'July 2013 Kronos Headcount Report_working.xlsx')
+wb = load_workbook(filename = r'Kronos Headcount Report_working.xlsx')
 source = wb.get_sheet_by_name('raw data')
 end = time.time() #End Timer
 
