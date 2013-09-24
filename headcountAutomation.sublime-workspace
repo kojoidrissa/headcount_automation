@@ -35,7 +35,15 @@
 			"file": "functionalSheets.py",
 			"settings":
 			{
-				"buffer_size": 14428,
+				"buffer_size": 13195,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "func_areas.py",
+			"settings":
+			{
+				"buffer_size": 709,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,7 +51,15 @@
 			"file": "costCenterFooter.py",
 			"settings":
 			{
-				"buffer_size": 2211,
+				"buffer_size": 899,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "deptTotal.py",
+			"settings":
+			{
+				"buffer_size": 1262,
 				"line_ending": "Windows"
 			}
 		},
@@ -51,7 +67,7 @@
 			"file": "test.py",
 			"settings":
 			{
-				"buffer_size": 2537,
+				"buffer_size": 3724,
 				"line_ending": "Windows"
 			}
 		},
@@ -59,7 +75,7 @@
 			"file": "MonthlyHeadcountReportAutomation.md",
 			"settings":
 			{
-				"buffer_size": 15284,
+				"buffer_size": 13215,
 				"line_ending": "Windows"
 			}
 		},
@@ -67,7 +83,7 @@
 			"file": "notes.md",
 			"settings":
 			{
-				"buffer_size": 704,
+				"buffer_size": 786,
 				"line_ending": "Windows"
 			}
 		},
@@ -124,13 +140,10 @@
 	},
 	"file_history":
 	[
-		"/C/Users/kidrissa/headcount_automation/headcountAutomation.sublime-project",
-		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/C/Users/kidrissa/headcount_automation/deptTotal.py",
 		"/c/Users/kidrissa/headcount_automation/.git/COMMIT_EDITMSG",
+		"/C/Users/kidrissa/headcount_automation/.gitignore",
 		"/C/Users/kidrissa/headcount_automation/headcountJuly2013.py",
 		"/C/Users/kidrissa/headcount_automation/copy.sh",
-		"/C/Users/kidrissa/headcount_automation/.gitignore",
 		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/MarkdownEditing/Markdown.sublime-settings",
 		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Markdown.sublime-settings",
 		"/c/Users/kidrissa/git-test/.git/COMMIT_EDITMSG",
@@ -147,6 +160,7 @@
 		"/C/Users/kidrissa/headcount_automation/README.txt",
 		"/C/Users/kidrissa/headcount_automation/test.txt",
 		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/kidrissa/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/C/Users/kidrissa/Documents/Received by Email/README.txt"
 	],
 	"find":
@@ -189,7 +203,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -197,15 +211,15 @@
 					"file": "functionalSheets.py",
 					"settings":
 					{
-						"buffer_size": 14428,
+						"buffer_size": 13195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12102,
-								12102
+								2271,
+								2271
 							]
 						],
 						"settings":
@@ -215,25 +229,51 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4067.0,
+						"translation.y": 604.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "costCenterFooter.py",
+					"file": "func_areas.py",
 					"settings":
 					{
-						"buffer_size": 2211,
+						"buffer_size": 709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1987,
-								1987
+								709,
+								709
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "costCenterFooter.py",
+					"settings":
+					{
+						"buffer_size": 899,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								899,
+								899
 							]
 						],
 						"settings":
@@ -249,11 +289,39 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
+					"file": "deptTotal.py",
+					"settings":
+					{
+						"buffer_size": 1262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1262,
+								1262
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "test.py",
 					"settings":
 					{
-						"buffer_size": 2537,
+						"buffer_size": 3724,
 						"regions":
 						{
 						},
@@ -271,17 +339,17 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 843.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "MonthlyHeadcountReportAutomation.md",
 					"settings":
 					{
-						"buffer_size": 15284,
+						"buffer_size": 13215,
 						"regions":
 						{
 						},
@@ -305,19 +373,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "notes.md",
 					"settings":
 					{
-						"buffer_size": 704,
+						"buffer_size": 786,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								650,
-								650
+								786,
+								786
 							]
 						],
 						"settings":
@@ -331,7 +399,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "headcountJuly2013.py",
 					"settings":
 					{
@@ -342,8 +410,8 @@
 						"selection":
 						[
 							[
-								2152,
-								2152
+								6606,
+								6611
 							]
 						],
 						"settings":
@@ -353,7 +421,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 684.0,
+						"translation.y": 2688.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
