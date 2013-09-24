@@ -1,5 +1,5 @@
 #formats Planning Notes
-These are the planning notes for this branch (formats)
+These are the planning notes for my former "formats" branch
 
 THIS helps a lot: http://stackoverflow.com/questions/8440284/setting-styles-in-openpyxl
 
