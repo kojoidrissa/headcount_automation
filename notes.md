@@ -1,12 +1,24 @@
-##deptTotal Planning Notes
-These are the planning notes for this branch (deptTotal)
+#formats Planning Notes
+These are the planning notes for this branch (formats)
 
-To create the department (functional area) totals, I need to:
+THIS helps a lot: http://stackoverflow.com/questions/8440284/setting-styles-in-openpyxl
 
--  Create a seperate function, perhaps a seperate module to handle this
--  Have that module total the footers for each functional area, probably in the 'create_tabs' function. This will give the doeTotal and projTotal for the entire Functional Area
-    -  What inputs will this function take? It should be the "footer" dictionary, which should take the form:
+1.  Experiment with making the Headers bold. I'll make changes to the `#creating the header row` of *functionalSheets.py*, which is lines 13-20 before I start making changes
+`dir(cell.style.font)`
+...
+`'bold',
+ 'color',
+ 'italic',
+ 'name',
+ 'size',
+ 'strikethrough',
+ 'subscript',
+ 'superscript',
+ 'underline'`
 
-            footer = {'cc1':[doeTotal, projTotal}, 'cc2:'[doeTotal, projTotal]...'ccN':[doeTotal, projTotal}
 
--  append the deptTotal to the end of the tab after the other cost centers are created
+2. After that, I'll try Text alignment with the headers too
+    - Left with Columns 1-6; Right with Columns 7-11
+3.  Number formats (% and Acct) for Util. & Hours
+
+My decision to NOT use cell objects (as I didn't know how at the time) may have hamstrung me here. I may need to do the formatting manually.
