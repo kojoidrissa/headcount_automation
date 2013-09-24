@@ -35,7 +35,7 @@
 			"file": "functionalSheets.py",
 			"settings":
 			{
-				"buffer_size": 13195,
+				"buffer_size": 14558,
 				"line_ending": "Windows"
 			}
 		},
@@ -51,7 +51,7 @@
 			"file": "costCenterFooter.py",
 			"settings":
 			{
-				"buffer_size": 899,
+				"buffer_size": 2211,
 				"line_ending": "Windows"
 			}
 		},
@@ -75,7 +75,7 @@
 			"file": "MonthlyHeadcountReportAutomation.md",
 			"settings":
 			{
-				"buffer_size": 13215,
+				"buffer_size": 15374,
 				"line_ending": "Windows"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "notes.md",
 			"settings":
 			{
-				"buffer_size": 786,
+				"buffer_size": 704,
 				"line_ending": "Windows"
 			}
 		},
@@ -211,15 +211,15 @@
 					"file": "functionalSheets.py",
 					"settings":
 					{
-						"buffer_size": 13195,
+						"buffer_size": 14558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2271,
-								2271
+								0,
+								0
 							]
 						],
 						"settings":
@@ -265,15 +265,15 @@
 					"file": "costCenterFooter.py",
 					"settings":
 					{
-						"buffer_size": 899,
+						"buffer_size": 2211,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								899,
-								899
+								0,
+								0
 							]
 						],
 						"settings":
@@ -349,15 +349,15 @@
 					"file": "MonthlyHeadcountReportAutomation.md",
 					"settings":
 					{
-						"buffer_size": 13215,
+						"buffer_size": 15374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13215,
-								13215
+								0,
+								0
 							]
 						],
 						"settings":
@@ -377,15 +377,15 @@
 					"file": "notes.md",
 					"settings":
 					{
-						"buffer_size": 786,
+						"buffer_size": 704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								786,
-								786
+								0,
+								0
 							]
 						],
 						"settings":
