@@ -158,7 +158,7 @@ Needed for each sheet
         -  This is a stopgap measure. I need to figure out how to have the CC values come out AS strings, not numbers
     -  With the CC numbers in place, `VLookup` the Cost Center Descriptions and 'paste values' those results
 -  Use this updated version of Hdcnt Summary as the input for functionalSheets.py
-    -  It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.
+    -  <del>It looks like I'll need to change `headcount_sorted = sorted(functable, key = itemgetter(1, 0, 3))` in the *create_tabs* function. The last index will need to be 4, since I'm adding the CC Description column.</del> I've semi-succesfully fixed this so it creaes the indeces from the header row.
         -  I ALSO needed to adjust the size of the Footer rows to be one longer. That led me to also make the spacer rows longer AND to figure out how to generate each of those lists programmatically, instead of manually. List comprehensions (and [StackOverflow](http://stackoverflow.com/a/10712032)) to the resucue! 
         -  This also highlights the need for me to use header names to generate indcies, instead of hard-coding them. It makes the process too fragile.
     -  If it doesn't work immediately, I'll have to go back to the manual method of adding in CC Descriptions AFTER functionalSheets.py does it's work
@@ -247,3 +247,7 @@ The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that do
 -  returns those header indexes in the form of some sort of iterable (not sure what, exactly; would a tuple be better than a list?)
 -  I should probably keeps that sequence of header strings, since I'll want to refer to them later
 
+###Running on the Network Drive
+From within the Canopy shell:
+
+`cd 'M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\<MMMM> <YYYY>\Headcount Misc'`

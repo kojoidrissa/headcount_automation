@@ -186,7 +186,10 @@ def create_tabs(functable, tabname):
     ##http://docs.python.org/2/howto/sorting.html#operator-module-functions
     from operator import itemgetter
     ##using Operator module, sorting by Cost Center, then Company, then Emp. Name
-    headcount_sorted = sorted(functable, key = itemgetter(1, 0, 4)) #changed 3rd index from '3' to '4' due to change in Hdcnt Summary
+    
+    import sortCriteria #generates itemgetter keys based on the header values, instead of hardcoding them
+    sort_by = sortCriteria.sort_criteria(source.rows[0]) 
+    headcount_sorted = sorted(functable, key = itemgetter(sort_by[0], sort_by[1], sort_by[2]))
     
     #goes through the sorted nested list, writing it to the spreadsheet in memory
     #Updated version uses the APPEND method from http://pythonhosted.org/openpyxl/api.html#module-openpyxl-worksheet-worksheet
@@ -201,7 +204,7 @@ def create_tabs(functable, tabname):
     ###Since I named my module AND function the same thing (I hadn't planned on it being a module)
     ###I ended up with moduleName.moduleName() 
 
-    import costCenterFooter 
+    import costCenterFooter
     footer = costCenterFooter.costCenterFooter(functable)
 
     for r in headcount_sorted:
@@ -221,6 +224,12 @@ def create_tabs(functable, tabname):
             ws.append(header)
             ws.append(r)
     ws.append(footer[str(headcount_sorted[ri][1])]) #footer for the FINAL Cost Center
+    
+    #Once all the Cost Centers are done, add in the grand totals for the Functional Area
+    import deptTotal
+    DeptTotals = deptTotal.deptTotal(footer, tabname)
+    ws.append(spacer) #spacer for readability
+    ws.append(DeptTotals[tabname]) #Functional Area Totals & Utilization
                 
 #commented this out while testing the ws.append() method
 #that function seems to work better for my purposes. I need to look at
