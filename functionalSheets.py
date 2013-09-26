@@ -1,6 +1,5 @@
 #!python
 
-##cd 'C:\Users\kidrissa\Documents\Monthly Headcount Schedule\July 2013 Headcount'
 ##This will take the output of "headcount.py" and create the various functional spreadsheet summaries
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
@@ -21,6 +20,7 @@ header.extend(['Tot. Hours', 'DOE Util %', 'Proj. Util %'])
 
 ##Lists of Cost Center codes 'CC'that make up each functional tab
 #Should these be dictionaries with {function: [cc1, cc2,...ccn]}? Probably.
+##Soon to be replaced by costCenter_function_map.json
 
 engineering = ['57100', '57240', '57250', '57260', '57620','57166']
 #subsea will use ALL 57230, but ONLY use the other Cost Centers where they're in Company 2231
@@ -39,22 +39,6 @@ legal = ['61401']
 procure = ['55236', '52A05']
 ethics = ['61315']
 
-#I'm not 100% sure how to optimally use this dictionary, so I'm going to go with a less optimzed approach
-#I'm going to just repeat the code. (2013-07-22)
-#However, I AM going to use this construct to generate a list of the different tabs I need.
-#REVISIT THIS DICTIONARY (2013-07-23)
-#ALSO: I made this dictionary by coverting the Cost Center lists above into a dictionary. Why? Because I'd created the above lists first
-#I need to revisit this dictionary. There should be some way for me to feed THIS
-'''
-tab_dict = dict(engineering = ['57100', '57240', '57250', '57260', '57620', '57166'], subsea = ['57230', '57619', '57621', '61201', '61316', '61708'],
-prjCntrls = ['55221', '57171', '52A04'],
-prjMgmt = ['52A02', '52P01', '52P02', '52P04', '52P05', '52P06', '52P07', '52P08', '52P09', '52P10', '52P11', '52P14','52P17', '52P18', '52P19'],
- estSales = ['55831', '52215', '61820', '61708', '61745'], quality = ['52A03', '51346', '55054', '57165'], accounting = ['61101', '57619', '61160', '61174'],
- humanres = ['55832', '55833', '61316', '55834'], infotech = ['61201'], hses = ['51247', '51270', '55308', '55358', '52A01']
-, legal = ['61401'], procure = ['55236'], ethics = ['61315'])
-tablist = tab_dict.keys()
-'''
-
 #This function takes in the list of cost centers which make up a Functional Tab, returns a list of lists; 
 #each internal list is a row for that Functional tab
 ##I'd originally intended it to return a list of tuples; why the change? Probably lack of skill on my part
@@ -63,7 +47,6 @@ tablist = tab_dict.keys()
 ###As of 2013-08-01, This function is being cloned into two different functions;One that excludes Company 2231(Subsea)
 ###and another that excludes anything NOT Company 2231(Subsea) This is my current (2013-08-01)
 ###solution to the issue of Subsea having cost centers used in 2231 and 1902 in a Cost Center-focused report
-###Also, I need to get Git installed on this machine
 
 #def functionTable(list):
 #    
@@ -132,8 +115,8 @@ def makeSubseaTable(list):
                 tempTable.append(temprow)
     return tempTable
 
-#This function takes in the list of cost centers in Subsea, returns a list of lists; 
-#each internal list is a row for Subsea. It also excludes any rows that aren't
+#This function takes in the list of cost centers from the various functional areas, returns a list of lists; 
+#each internal list is a row in the table for that area. It also excludes any rows that ARE
 #Subsea (Company 2231)
 def makeNoSubseaTable(list):
     
@@ -232,8 +215,8 @@ def create_tabs(functable, tabname):
     ws.append(DeptTotals[tabname]) #Functional Area Totals & Utilization
                 
 #commented this out while testing the ws.append() method
-#that function seems to work better for my purposes. I need to look at
-#using it with the headcount.py module
+#that function seems to work better for my purposes.
+#but THIS might work for my exceptions.py code; will .value let me copy/capture formulas?
 '''
 for c in r:
     ci = headcount_sorted[ri].index(c)
@@ -300,5 +283,3 @@ for t in prjCTable:
 end = time.time()
 dur = end - start
 print "Total processing time", dur
-print "Don't forget to check: there should be NO 2231 employees in the non-Subsea tabs."
-print "Also, double check that there are no NON-2231 employees in the Subsea tab."
