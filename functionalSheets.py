@@ -214,15 +214,6 @@ def create_tabs(functable, tabname):
     ws.append(spacer) #spacer for readability
     ws.append(DeptTotals[tabname]) #Functional Area Totals & Utilization
                 
-#commented this out while testing the ws.append() method
-#that function seems to work better for my purposes.
-#but THIS might work for my exceptions.py code; will .value let me copy/capture formulas?
-'''
-for c in r:
-    ci = headcount_sorted[ri].index(c)
-    #print "Cell #, Value:", ci, c
-    ws.cell(row = ri, column = ci).value = headcount_sorted[ri][ci]
-'''   
 
 #My "Main Loop"; running the data through the two functions
 #this is almost DEFINETLY sub-optimal, but it'll have to do for now
