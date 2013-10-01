@@ -256,6 +256,9 @@ time2 = time.time()
 #print "Length of all tables is", len(subsTable + estSTable + prjCTable + infoTable + procTable + legaTable + engiTable + humaTable + prjMTable + accoTable + ethiTable + hsesTable + qualTable)
 print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
+#remove 'Sheet' worksheet, that gets created by default
+target.remove_sheet(target.get_sheet_by_name("Sheet"))
+
 ##Writing that worksheet to a file
 target.save(dest_filename)
 
