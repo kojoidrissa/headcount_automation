@@ -1,5 +1,4 @@
 #!python
-worksheets = target.get_sheet_names()
 
 #Makes Headers and Footers Bold
 def bold_headers_footers(target):
@@ -24,34 +23,42 @@ def bold_headers_footers(target):
 	                #a less fragile way to do this Footer test
 			    for cell in row[5:]:
 			        cell.style.font.bold = True
-    return target
+	return target
 
 ##Checking the bolding BEFORE writing the file
-for sheet in worksheets:
-	for row in target.get_sheet_by_name(sheet).rows:
-		ri = target.get_sheet_by_name(sheet).rows.index(row)
-		for cell in row:
-			ci = row.index(cell)
-			if cell.style.font.bold:
-				print "Sheet", sheet, "Row", ri, "Cell", ci, ", also known as Cell", cell.address, "is", cell.value, "and it's BOLD."
+def what_is_bold(target):
+	'''
+	OpenPyXL Workbook --> Printed output
 
-#Finding Hours
-for sheet in worksheets[:-1]:
-	for cell in sheet[0]:
-		if cell.value == "DOE":
-			di = sheet[0].index(cell)
-		elif cell.value == "Project":
-			pi = sheet[0].index(cell)
-		elif cell.value == "Tot. Hours":
-			ti = sheet[0].index(cell)
-	for row in target.get_sheet_by_name(sheet).rows:
-		if row[5].value + row[6].value == row[7].value:
-			print "Match!", row[5].value,"+",row[6].value, "=",row[7].value,"."
-			# for cell in row:
-			# 	cell.style.font.bold = True
-   #              elif type(row[0].value) == unicode and type(row[5].value) != unicode:
-		 #    for cell in row[5:]:
-		 #        cell.style.font.bold = True
+	Takes in an OpenPyXL Workbook object, identifies the cells that are bold
+	prints identifying information about those cells  
+	'''
+	worksheets = target.get_sheet_names()
+	for sheet in worksheets:
+		for row in target.get_sheet_by_name(sheet).rows:
+			ri = target.get_sheet_by_name(sheet).rows.index(row)
+			for cell in row:
+				ci = row.index(cell)
+				if cell.style.font.bold:
+					print "Sheet", sheet, "Row", ri, "Cell", ci, ", also known as Cell", cell.address, "is", cell.value, "and it's BOLD."
+
+# #Finding Hours
+# for sheet in worksheets[:-1]:
+# 	for cell in sheet[0]:
+# 		if cell.value == "DOE":
+# 			di = sheet[0].index(cell)
+# 		elif cell.value == "Project":
+# 			pi = sheet[0].index(cell)
+# 		elif cell.value == "Tot. Hours":
+# 			ti = sheet[0].index(cell)
+# 	for row in target.get_sheet_by_name(sheet).rows:
+# 		if row[5].value + row[6].value == row[7].value:
+# 			print "Match!", row[5].value,"+",row[6].value, "=",row[7].value,"."
+# 			# for cell in row:
+# 			# 	cell.style.font.bold = True
+#    #              elif type(row[0].value) == unicode and type(row[5].value) != unicode:
+# 		 #    for cell in row[5:]:
+# 		 #        cell.style.font.bold = True
 
 
 #Results BEFORE Workbooks has been saved
