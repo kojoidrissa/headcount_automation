@@ -2,20 +2,29 @@
 worksheets = target.get_sheet_names()
 
 #Makes Headers and Footers Bold
-for sheet in worksheets:
-	print sheet, len(target.get_sheet_by_name(sheet).rows)
-	for row in target.get_sheet_by_name(sheet).rows:
-		#ri = target.get_sheet_by_name(sheet).rows.index(row)
-		if row[0].value == 'Company': #Header test 
-			for cell in row:
-				cell.style.font.bold = True
-                elif type(row[0].value) == unicode and type(row[5].value) != unicode: #Footer test
-                #this code depends on the cell types BEFORE the worksheet is written/saved
-                #as such, it needs to run BEFORE the save. I'll need to get a better handle on
-                #the various datatypes; I also need to rexamine my method here. There should be
-                #a less fragile way to do this Footer test
-		    for cell in row[5:]:
-		        cell.style.font.bold = True
+def bold_headers_footers(target):
+	'''
+	OpenPyXL Workbook --> OpenPyXL Workbook
+
+	Takes in an OpenPyXL Workbook object, identifies the Header & footer rows, sets their
+	cell styles to bold
+	'''
+
+	worksheets = target.get_sheet_names()
+	for sheet in worksheets:
+		for row in target.get_sheet_by_name(sheet).rows:
+			#ri = target.get_sheet_by_name(sheet).rows.index(row)
+			if row[0].value == 'Company': #Header test 
+				for cell in row:
+					cell.style.font.bold = True
+	                elif type(row[0].value) == unicode and type(row[5].value) != unicode: #Footer test
+	                #this code depends on the cell types BEFORE the worksheet is written/saved
+	                #as such, it needs to run BEFORE the save. I'll need to get a better handle on
+	                #the various datatypes; I also need to rexamine my method here. There should be
+	                #a less fragile way to do this Footer test
+			    for cell in row[5:]:
+			        cell.style.font.bold = True
+    return target
 
 ##Checking the bolding BEFORE writing the file
 for sheet in worksheets:
