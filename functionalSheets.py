@@ -257,7 +257,7 @@ time2 = time.time()
 print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
 #remove 'Sheet' worksheet, that gets created by default
-target.remove_sheet(target.get_sheet_by_name("Sheet"))
+target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
 
 ##Writing that worksheet to a file
 target.save(dest_filename)
