@@ -3,7 +3,7 @@ target.remove_sheet('Sheet')
 worksheets = target.get_sheet_names()
 
 #Makes Headers and Footers Bold
-for sheet in worksheets[:-1]:
+for sheet in worksheets:
 	print sheet, len(target.get_sheet_by_name(sheet).rows)
 	for row in target.get_sheet_by_name(sheet).rows:
 		#ri = target.get_sheet_by_name(sheet).rows.index(row)
