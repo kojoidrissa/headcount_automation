@@ -1,6 +1,6 @@
 #`config_file`  branch planning notes
 
-If I'm going to use `costCenter_Function_map.json` as my config file, that'll require some changes to `functionalSheets.py`. I should be able to replace the two big blocks running functions with calls that reference the .json dictionary. But HOW exactly will I do this?
+If I'm going to use `costCenter_Function_map.json` as my config file, that'll require some changes to `functionalSheets.py`. I should be able to replace the two big blocks running functions with calls that reference the .json dictionary. But HOW exactly will I do this? **NOTE:**  The current config file is accurate as of 2013-08-01; needs to be updated for 2013-09 reports
 
 ##Block for Function 1: functionTable ==> makeSubSeaTable/makeNoSubseaTable
 From the function definition:
@@ -14,7 +14,7 @@ From the function definition:
     '''
 </pre>
 
-I should be able to replace the:
+I should be able to replace this block:
 <pre>
     subsTable = makeSubseaTable(subsea)
     estSTable = makeNoSubseaTable(estSales)
@@ -29,6 +29,15 @@ I should be able to replace the:
     ethiTable = makeNoSubseaTable(ethics)
     hsesTable = makeNoSubseaTable(hses)
     qualTable = makeNoSubseaTable(quality)
+</pre>
+with
+<pre>
+    sheet_dict = {}
+    for key in dept_dict.keys():
+        if key != 'Subsea':
+            sheet_dict.update({key : makeNoSubseaTable(dept_dict[key])})
+        else:
+            sheet_dict.update({key : makeSubseaTable(dept_dict[key])})
 </pre>
 
 ## Block for Function 2: create_tabs
@@ -60,5 +69,9 @@ The code block is:
     create_tabs(qualTable, 'Quality')
     create_tabs(fullTable, 'Headcount Summary Sorted')
 </pre>
+If I have Block 1 create a 2nd dictionary with the format {'Dept1Name' : [NestedDept1Table], 'Dept2Name' : [NestedDept2Table]... }, I **SHOULD** be able to replace this block with:
+for key in 2ndDict.keys():
+    create_tabs(2ndDict[key], key)
+create_tabs(fullTable, 'Headcount Summary Sorted')
 
 
