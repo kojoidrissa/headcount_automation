@@ -218,7 +218,7 @@ def create_tabs(functable, tabname):
 #My "Main Loop"; running the data through the two functions
 #this is almost DEFINETLY sub-optimal, but it'll have to do for now
 ##Function 1: functionTable ==> makeSubSeaTable/makeNoSubseaTable
-time1 = time.time()
+#time1 = time.time()
 #subsTable = makeSubseaTable(subsea)
 #estSTable = makeNoSubseaTable(estSales)
 #prjCTable = makeNoSubseaTable(prjCntrls)
@@ -232,11 +232,11 @@ time1 = time.time()
 #ethiTable = makeNoSubseaTable(ethics)
 #hsesTable = makeNoSubseaTable(hses)
 #qualTable = makeNoSubseaTable(quality)
-time2 = time.time()
-print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
+#time2 = time.time()
+#print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
 
 ##Function 2: create_tabs
-time1 = time.time()
+#time1 = time.time()
 #create_tabs(subsTable, 'Subsea')
 #create_tabs(estSTable, 'Estimation & Sales')
 #create_tabs(prjCTable, 'Project Controls')
@@ -251,10 +251,10 @@ time1 = time.time()
 #create_tabs(hsesTable, 'HSES')
 #create_tabs(qualTable, 'Quality')
 #create_tabs(fullTable, 'Headcount Summary Sorted')
-time2 = time.time()
+#time2 = time.time()
 
 #print "Length of all tables is", len(subsTable + estSTable + prjCTable + infoTable + procTable + legaTable + engiTable + humaTable + prjMTable + accoTable + ethiTable + hsesTable + qualTable)
-print "Creation Time for ALL tabs was ", time2-time1, "seconds."
+#print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
 #remove 'Sheet' worksheet, that gets created by default
 target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
