@@ -207,7 +207,9 @@ for key in dept_dict.keys():
     if key != 'Subsea':
         sheet_dict.update({key : makeNoSubseaTable(dept_dict[key])})
     else:
-        sheet_dict.update({key : makeSubseaTable(dept_dict[key])})#time2 = time.time()
+        sheet_dict.update({key : makeSubseaTable(dept_dict[key])})
+
+time2 = time.time()
 print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
 
 ##Function 2: create_tabs
