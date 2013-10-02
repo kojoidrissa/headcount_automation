@@ -18,26 +18,7 @@ for c in source.rows[0]:
 header[-2:] = 'DOE', 'Project'
 header.extend(['Tot. Hours', 'DOE Util %', 'Proj. Util %']) 
 
-##Lists of Cost Center codes 'CC'that make up each functional tab
-#Should these be dictionaries with {function: [cc1, cc2,...ccn]}? Probably.
-##Soon to be replaced by costCenter_function_map.json
 
-# engineering = ['57100', '57240', '57250', '57260', '57620','57166']
-# #subsea will use ALL 57230, but ONLY use the other Cost Centers where they're in Company 2231
-# #57619, 61201, 61316, 61708 are all used outside of 2231
-# subsea = ['57230','57621', '57619', '61201', '61316', '61708']
-# prjCntrls = ['55221', '57171', '52A04']
-# #prjMgmt also has Cost Centers that cross Company lines
-# prjMgmt = ['52A02', '52P01', '52P02', '52P04', '52P05', '52P06', '52P07', '52P08', '52P09', '52P10', '52P11', '52P14','52P17', '52P18', '52P19']
-# estSales = ['55831', '52215', '61820', '61708', '61745']
-# quality = ['52A03', '51346', '55054', '57165']
-# accounting = ['61101', '57619', '61160', '61174']
-# humanres = ['55832', '55833', '61316', '55834']
-# infotech = ['61201']
-# hses = ['51247', '51270', '55308', '55358', '52A01']
-# legal = ['61401']
-# procure = ['55236', '52A05']
-# ethics = ['61315']
 
 #This function takes in the list of cost centers which make up a Functional Tab, returns a list of lists; 
 #each internal list is a row for that Functional tab
@@ -216,45 +197,28 @@ def create_tabs(functable, tabname):
                 
 
 #My "Main Loop"; running the data through the two functions
-#this is almost DEFINETLY sub-optimal, but it'll have to do for now
+
 ##Function 1: functionTable ==> makeSubSeaTable/makeNoSubseaTable
-#time1 = time.time()
-#subsTable = makeSubseaTable(subsea)
-#estSTable = makeNoSubseaTable(estSales)
-#prjCTable = makeNoSubseaTable(prjCntrls)
-#infoTable = makeNoSubseaTable(infotech)
-#procTable = makeNoSubseaTable(procure)
-#legaTable = makeNoSubseaTable(legal)
-#engiTable = makeNoSubseaTable(engineering)
-#humaTable = makeNoSubseaTable(humanres)
-#prjMTable = makeNoSubseaTable(prjMgmt)
-#accoTable = makeNoSubseaTable(accounting)
-#ethiTable = makeNoSubseaTable(ethics)
-#hsesTable = makeNoSubseaTable(hses)
-#qualTable = makeNoSubseaTable(quality)
-#time2 = time.time()
-#print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
+time1 = time.time()
+import json
+dept_dict = json.load(file('costCenter_Function_map.json'))
+sheet_dict = {}
+for key in dept_dict.keys():
+    if key != 'Subsea':
+        sheet_dict.update({key : makeNoSubseaTable(dept_dict[key])})
+    else:
+        sheet_dict.update({key : makeSubseaTable(dept_dict[key])})#time2 = time.time()
+print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
 
 ##Function 2: create_tabs
-#time1 = time.time()
-#create_tabs(subsTable, 'Subsea')
-#create_tabs(estSTable, 'Estimation & Sales')
-#create_tabs(prjCTable, 'Project Controls')
-#create_tabs(infoTable, 'IT Services')
-#create_tabs(procTable, 'Procurement')
-#create_tabs(legaTable, 'Legal')
-#create_tabs(engiTable, 'Engineering')
-#create_tabs(humaTable, 'Human Resources')
-#create_tabs(prjMTable, 'Project Management')
-#create_tabs(accoTable, 'Accounting')
-#create_tabs(ethiTable, 'Ethics')
-#create_tabs(hsesTable, 'HSES')
-#create_tabs(qualTable, 'Quality')
-#create_tabs(fullTable, 'Headcount Summary Sorted')
-#time2 = time.time()
+time1 = time.time()
+for key in sheet_dict.keys():
+    create_tabs(sheet_dict[key], key)
+create_tabs(fullTable, 'Headcount Summary Sorted')
+time2 = time.time()
 
 #print "Length of all tables is", len(subsTable + estSTable + prjCTable + infoTable + procTable + legaTable + engiTable + humaTable + prjMTable + accoTable + ethiTable + hsesTable + qualTable)
-#print "Creation Time for ALL tabs was ", time2-time1, "seconds."
+print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
 #remove 'Sheet' worksheet, that gets created by default
 target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
