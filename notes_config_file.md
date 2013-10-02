@@ -32,6 +32,8 @@ I should be able to replace this block:
 </pre>
 with
 <pre>
+    import json
+    dept_dict = json.load(file('costCenter_Function_map.json'))
     sheet_dict = {}
     for key in dept_dict.keys():
         if key != 'Subsea':
@@ -70,8 +72,8 @@ The code block is:
     create_tabs(fullTable, 'Headcount Summary Sorted')
 </pre>
 If I have Block 1 create a 2nd dictionary with the format {'Dept1Name' : [NestedDept1Table], 'Dept2Name' : [NestedDept2Table]... }, I **SHOULD** be able to replace this block with:
-for key in 2ndDict.keys():
-    create_tabs(2ndDict[key], key)
+for key in sheet_dict.keys():
+    create_tabs(sheet_dict[key], key)
 create_tabs(fullTable, 'Headcount Summary Sorted')
 
 
