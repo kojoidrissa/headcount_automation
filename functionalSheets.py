@@ -54,7 +54,7 @@ ethics = ['61315']
 #    list ==> list of lists
 #    
 #    Input a list of cost centers for a functional tab;
-#    return a list of lists where each inner list is a row of representing one peron in that Cost Center
+#    return a list of lists where each inner list is a row of representing one person in that Cost Center
 #    '''
 #    
 #    tempTable = []
@@ -97,7 +97,7 @@ def makeSubseaTable(list):
     list ==> list of lists
     
     Input a list of cost centers for a functional tab;
-    return a list of lists where each inner list is a row of representing one peron in that Cost Center
+    return a list of lists where each inner list is a row of representing one person in that Cost Center
     '''
 
     tempTable = []
@@ -124,7 +124,7 @@ def makeNoSubseaTable(list):
     list ==> list of lists
     
     Input a list of cost centers for a functional tab;
-    return a list of lists where each inner list is a row of representing one peron in that Cost Center
+    return a list of lists where each inner list is a row of representing one person in that Cost Center
     '''
 
     tempTable = []
