@@ -22,22 +22,22 @@ header.extend(['Tot. Hours', 'DOE Util %', 'Proj. Util %'])
 #Should these be dictionaries with {function: [cc1, cc2,...ccn]}? Probably.
 ##Soon to be replaced by costCenter_function_map.json
 
-engineering = ['57100', '57240', '57250', '57260', '57620','57166']
-#subsea will use ALL 57230, but ONLY use the other Cost Centers where they're in Company 2231
-#57619, 61201, 61316, 61708 are all used outside of 2231
-subsea = ['57230','57621', '57619', '61201', '61316', '61708']
-prjCntrls = ['55221', '57171', '52A04']
-#prjMgmt also has Cost Centers that cross Company lines
-prjMgmt = ['52A02', '52P01', '52P02', '52P04', '52P05', '52P06', '52P07', '52P08', '52P09', '52P10', '52P11', '52P14','52P17', '52P18', '52P19']
-estSales = ['55831', '52215', '61820', '61708', '61745']
-quality = ['52A03', '51346', '55054', '57165']
-accounting = ['61101', '57619', '61160', '61174']
-humanres = ['55832', '55833', '61316', '55834']
-infotech = ['61201']
-hses = ['51247', '51270', '55308', '55358', '52A01']
-legal = ['61401']
-procure = ['55236', '52A05']
-ethics = ['61315']
+# engineering = ['57100', '57240', '57250', '57260', '57620','57166']
+# #subsea will use ALL 57230, but ONLY use the other Cost Centers where they're in Company 2231
+# #57619, 61201, 61316, 61708 are all used outside of 2231
+# subsea = ['57230','57621', '57619', '61201', '61316', '61708']
+# prjCntrls = ['55221', '57171', '52A04']
+# #prjMgmt also has Cost Centers that cross Company lines
+# prjMgmt = ['52A02', '52P01', '52P02', '52P04', '52P05', '52P06', '52P07', '52P08', '52P09', '52P10', '52P11', '52P14','52P17', '52P18', '52P19']
+# estSales = ['55831', '52215', '61820', '61708', '61745']
+# quality = ['52A03', '51346', '55054', '57165']
+# accounting = ['61101', '57619', '61160', '61174']
+# humanres = ['55832', '55833', '61316', '55834']
+# infotech = ['61201']
+# hses = ['51247', '51270', '55308', '55358', '52A01']
+# legal = ['61401']
+# procure = ['55236', '52A05']
+# ethics = ['61315']
 
 #This function takes in the list of cost centers which make up a Functional Tab, returns a list of lists; 
 #each internal list is a row for that Functional tab
