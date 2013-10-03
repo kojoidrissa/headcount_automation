@@ -28,7 +28,7 @@ def summary_not_in_map (fullTable, map):
 			exception_list.append(i)
 	exceptions = sorted(exception_list) #http://docs.python.org/2/library/functions.html?highlight=sorted#sorted
 
-	print len(summaryUnique), "Cost Centers in the Headcount Summary are NOT inlcuded in the Department/Cost Center mapping"
+	print len(exceptions), "Cost Centers in the Headcount Summary are NOT inlcuded in the Department/Cost Center mapping"
 	return exceptions
 
 
