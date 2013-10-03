@@ -7,7 +7,7 @@ def summary_not_in_map (fullTable, map):
 
     #Creating list of unique cost Centers
     summary_ccList = []
-    for i in functable:
+    for i in fullTable:
         summary_ccList.append(i[1])
     summaryUnique = set(summary_ccList)
 
