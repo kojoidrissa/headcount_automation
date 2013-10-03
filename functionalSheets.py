@@ -222,6 +222,18 @@ time2 = time.time()
 #print "Length of all tables is", len(subsTable + estSTable + prjCTable + infoTable + procTable + legaTable + engiTable + humaTable + prjMTable + accoTable + ethiTable + hsesTable + qualTable)
 print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
+#insert Exceptions worksheet
+time1 = time.time()
+import cc_exceptions
+exceptions = cc_exceptions.summary_not_in_map (fullTable, dept_dict)
+ws = target.create_sheet(0)
+ws.title = 'EXCEPTIONS'
+ws.append("The following Cost Centers are IN the Headcount Summary, but not the Deparmental Mapping")
+for i in exceptions:
+    ws.append(i)
+time2 = time.time()
+print "Time to find exceptions was ", time2-time1, "seconds."
+
 #remove 'Sheet' worksheet, that gets created by default
 target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
 
