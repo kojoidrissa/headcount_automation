@@ -228,9 +228,9 @@ import cc_exceptions
 exceptions = cc_exceptions.summary_not_in_map (fullTable, dept_dict)
 ws = target.create_sheet(0)
 ws.title = 'EXCEPTIONS'
-ws.append("The following Cost Centers are IN the Headcount Summary, but not the Deparmental Mapping")
+ws.cell(coordinate='A1').value = "The following Cost Centers are IN the Headcount Summary, but not the Departmental Mapping"
 for i in exceptions:
-    ws.append(i)
+    ws.cell('A1').offset(row = (exceptions.index(i)+1), column = 0).value = i
 time2 = time.time()
 print "Time to find exceptions was ", time2-time1, "seconds."
 
