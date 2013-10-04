@@ -17,8 +17,8 @@ def summary_not_in_map (fullTable, map):
 
 	#Creating list of unique Cost Centers from the map
 	map_ccList = []
-	for key in dept_dict.keys():
-		for i in dept_dict[key]:
+	for key in map.keys():
+		for i in map[key]:
 			map_ccList.append(i)
 	mapUnique = set(map_ccList)
 
@@ -35,8 +35,8 @@ def summary_not_in_map (fullTable, map):
 
 	#I'm trying to figure out how to build a 'while' loop. Later for that.
 	# for i in summaryUnique:
-	# 	for key in dept_dict.keys():
-	# 		if i not in dept_dict[key]:
+	# 	for key in map.keys():
+	# 		if i not in map[key]:
 	# 			print i, "was not found in", key
 
 
