@@ -16,11 +16,11 @@ def bold_headers_footers(target):
 			if row[0].value == 'Company': #Header test 
 				for cell in row:
 					cell.style.font.bold = True
-	                elif type(row[0].value) == unicode and type(row[5].value) != unicode: #Footer test
-	                #this code depends on the cell types BEFORE the worksheet is written/saved
-	                #as such, it needs to run BEFORE the save. I'll need to get a better handle on
-	                #the various datatypes; I also need to rexamine my method here. There should be
-	                #a less fragile way to do this Footer test
+			elif type(row[0].value) == unicode and type(row[5].value) != unicode: #Footer test
+			#this code depends on the cell types BEFORE the worksheet is written/saved
+			#as such, it needs to run BEFORE the save. I'll need to get a better handle on
+			#the various datatypes; I also need to rexamine my method here. There should be
+			#a less fragile way to do this Footer test
 			    for cell in row[5:]:
 			        cell.style.font.bold = True
 	return target

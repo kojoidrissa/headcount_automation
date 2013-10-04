@@ -222,7 +222,16 @@ time2 = time.time()
 #print "Length of all tables is", len(subsTable + estSTable + prjCTable + infoTable + procTable + legaTable + engiTable + humaTable + prjMTable + accoTable + ethiTable + hsesTable + qualTable)
 print "Creation Time for ALL tabs was ", time2-time1, "seconds."
 
-#insert Exceptions worksheet
+
+#remove 'Sheet' worksheet, that gets created by default
+target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
+
+#Make headers bold; format will probably be the later home of functions for number & alignment formatting
+import format
+format.bold_headers_footers(target)
+
+#insert Exceptions worksheet; this has to happen AFTER format gets called
+#the format module won't work on this sheet
 time1 = time.time()
 import cc_exceptions
 exceptions = cc_exceptions.summary_not_in_map (fullTable, dept_dict)
@@ -233,13 +242,6 @@ for i in exceptions:
     ws.cell('A1').offset(row = (exceptions.index(i)+1), column = 0).value = i
 time2 = time.time()
 print "Time to find exceptions was ", time2-time1, "seconds."
-
-#remove 'Sheet' worksheet, that gets created by default
-target.remove_sheet(target.get_sheet_by_name("Sheet")) #the .remove_sheet() function seems to REQUIRE a worksheet object, not just a name
-
-#Make headers bold; format will probably be the later home of functions for number & alignment formatting
-import format
-format.bold_headers_footers(target)
 
 ##Writing that worksheet to a file
 target.save(dest_filename)
