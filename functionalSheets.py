@@ -52,7 +52,12 @@ header.extend(['Tot. Hours', 'DOE Util %', 'Proj. Util %'])
 ##This function is intended to create a table of the ENTIRE contents of the headcount summary file
 fullTable = []
 time1 = time.time()
-for row in source.rows[1:-1]: #trying to work around problem with 1st and last rows; was 'for row in source.rows'
+
+#slice is me trying to work around problem with 1st and last rows; was 'for row in source.rows'
+#at 2013-10-07, changed slice to '[1:]', as last row (with 0s in DOE & Proj columns) was gone
+#I need to look at the 'headcountSummary.py' code that generates the "hdcntsum.xlsx" file
+#What's going on there?
+for row in source.rows[1:]: 
     ri = source.rows.index(row)
     temprow = []
     for cell in row:
