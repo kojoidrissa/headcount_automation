@@ -219,8 +219,16 @@ Needed for each sheet
     -  Cutting the leading "00" from the Employee Number
 
 ###Version 3: Functional Tab Config File
+DONE!
 
 ###Version 4: One Program To Rule Them All! Input Files ==> Reports
+This version will need GUI elements to let the user pick their input files. These will include:
+-  the 'raw data' sheet
+    -  v. 1: if the chosen input doesn't have a sheet named "raw data", raise an exception
+    -  v. 2: let the user PICK the sheet they want? Perhaps present them with a list of sheet names?
+-  the cost center-Function map
+-  perhaps the headcount summary file (for the functionalSheets.py code)
+-  The user should also be able to select their destination file
 
 ##Refactor notes
 
