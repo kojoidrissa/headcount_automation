@@ -232,6 +232,8 @@ This version will need GUI elements to let the user pick their input files. Thes
 
 ##Refactor notes
 
+last "solid" commit: db6083
+
 ###Selecting columns by Header Name, not Index
 In the following code block, from headcountJuly2013.py:
 
