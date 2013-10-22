@@ -19,18 +19,16 @@ end = time.time() #End Timer
 
 durLoad = end - start0 #duration to Load
 
-#Building a list of lists; each internal list represents a row of data
+#Building a list of lists; each internal list represents a row of data; should this be a function? Probably.
 start = time.time() #Start Table creation timer
 
 table = []
 
+#This will be less fragile if I take the following advice from Glen:
+    #do this by column header/name instead of index
+    #include code that will throw a VISIBLE exception if a needed column is missing
 for row in range(len(source.rows)):
     r =[]
-    #adding 'ref' selection tuple dropped loop time on 89 cols from 0.416000 sec to 0.008000
-    #reordering the tuple indices here to avoid having to shuffle them later
-    #This will be less fragile if I take the following advice from Glen:
-        #do this by column header/name instead of index
-        #include code that will throw a VISIBLE exception if a needed column is missing
     ref = (3, 2, 0, 10, 4, 17, 21) 
     for col in ref: #Original "in" argument was 'range(len(source.columns))'
         r.append(source.cell(row = row, column = col).value)
@@ -44,9 +42,6 @@ print "Time to create 'Table' from ",source, "for", len(source.rows), "rows and 
 
 
 #Creating a spreadsheet in memory; Writing results to it (in memory)
-#This section will be replaced by the final report spreadsheet
-#that will have the following columns
-#CompNum, CC, EmpNum, EmpName, MngrName, TotalDOEhours, TotalProjhours
 
 start = time.time() #Start timer for creating 'Target' workbook
 target = Workbook()
@@ -58,23 +53,9 @@ dest_filename = r'hdcntsum.xlsx'
 #my theory is 
     #r'..\..\..\M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\June 2013\Headcount Misc\hdcntsum.xlsx' SHOULD work
 #Maybe not: r'\hdcntsum.xlsx' saved the file to the ROOT drive; C:
+#OS Module may be the answer here as well
 
-##Commenting out this next section; I don't need it. It was included before as a test
-##to be sure I was getting the proper data
-#ws = target.worksheets[0]
-#ws.title = "Monthly Headcount Raw"
-#
-#for row in range(len(table)):
-#    for col in range(len(table[0])):
-#        ws.cell(row = row, column = col).value = table[row][col]
-#        
-#end = time.time()  #End timer for creating 'Target' workbook
-#durTarget = end - start #durATION for Target
         
-#In an earlier iteration, I wrote the above file here. I've since postponed the write
-#and made 'Table' into the first sheet in the workbook. It's the 'reduced' form
-#of the raw data needed to create the final report. It can also be used as a check.
-
 #Creating list of keys
 #Each key is (as of 2013-07-16)a LIST made up of [Company Number, CC, EmpNum]. It SHOULD be
 #a TUPLE made up of (Company Number, CC, EmpNum). But I was having trouble with Tuples
@@ -102,7 +83,6 @@ for key in keylist:
     project = 0 #Counter for Project hours
     newrow =[]
     for r in range(len(table)):
-        #newrow = []
         if key == table[r][:3]: #Tuple version: 'if key == tuple(table[r][:3])'
             if table[r][5] == 'DOE':
                 doe = doe + table[r][6]
