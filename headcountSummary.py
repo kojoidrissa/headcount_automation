@@ -6,10 +6,9 @@ import time
 #MASTER branch: this should become the "clean" version of the file, w/o any commmented-out code
 ##new_stable: this is a branch from commit db6083 in Master. The NEXT commit, c8e3df, is where I changed the fullTable slice that messed up stuff.
 
-
-#I created a smaller subset file, 'headcounttest.xlsx', to work around the read/write speed issues during testing
 ##will this path work?: cd 'C:\Users\kidrissa\Documents\Monthly Headcount Schedule\July 2013 Headcount'
     ##Yes, but only from the shell. I'll need to bring in OS Module to make this work in code
+    ##OS Module may also help as a stopgap for the other modules in funcationalSheets.py; but setup.py is the REAL solution
 
 #starting timer; basic performance profiling
 start0 = time.time() #Start Loading Timer
@@ -19,7 +18,6 @@ source = wb.get_sheet_by_name('raw data')
 end = time.time() #End Timer
 
 durLoad = end - start0 #duration to Load
-print durLoad
 
 #Building a list of lists; each internal list represents a row of data
 start = time.time() #Start Table creation timer
@@ -29,7 +27,7 @@ table = []
 for row in range(len(source.rows)):
     r =[]
     #adding 'ref' selection tuple dropped loop time on 89 cols from 0.416000 sec to 0.008000
-    #reordering the tuple indexs here to avoid having to shuffle them later
+    #reordering the tuple indices here to avoid having to shuffle them later
     #This will be less fragile if I take the following advice from Glen:
         #do this by column header/name instead of index
         #include code that will throw a VISIBLE exception if a needed column is missing
@@ -38,41 +36,13 @@ for row in range(len(source.rows)):
         r.append(source.cell(row = row, column = col).value)
     table.append(r)
 end = time.time() #End Timer
-durTable = end - start #with 1,000 rows, durLoop = datetime.timedelta(0, 47, 16000) or 47 seconds
+durTable = end - start
 
 #Only for viewing profiling results
 print "Loading time for", source, ": ", durLoad
 print "Time to create 'Table' from ",source, "for", len(source.rows), "rows and ", len(source.columns), "columns: ", durTable
 
 
-#Getting the new internal indexes
-'''
-for col in range(len(table[0])):
-    print table[0][col], col
-''' 
-
-'''
-for i in a:
-    print i
-    print "\n"
-'''    
-
-###Not sure WHAT I was trying to do here, with this 'inner comment block'
-#   sTART iNNER cOMMENT bLOCK
-##I was trying to visualize the data after reading it in
-'''
-for i in range(len(table)):
-    print i,'===>', table[i], '\n'
-'''
-                  
-
-'''
-#Generating the Row & Column indexes
-for row in range(len(table)):
-    print row, "\n"
-    for col in range(len(table[0])):
-        print col, table[row][col]
-'''        
 #Creating a spreadsheet in memory; Writing results to it (in memory)
 #This section will be replaced by the final report spreadsheet
 #that will have the following columns
