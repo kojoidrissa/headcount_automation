@@ -76,7 +76,7 @@ durKeylist = end - start #durATION for Keylist
 start = time.time() #start Hourtable timer
 hourtable = []
 #'hourtable' will be a list of lists; each sublist is composed of a tuple and two ints; 
-#the first element of each list is the composite key Index 1 is DOE; Index 2 is Project;
+#Index 0 of each list is the composite key; Index 1 is DOE; Index 2 is Project;
 #DOE and Project are the hourly totals FOR that key
 for key in keylist:
     doe = 0 #Counter for DOE Hours
@@ -88,21 +88,9 @@ for key in keylist:
                 doe = doe + table[r][6]
             elif table[r][5] == 'Project':
                 project = project + table[r][6]
-
-#THIS NEXT BLOCK IS A HOT MESS! It comes from me not knowing how to work with Dictionaries
-#I got some good tips at PyHou on 2013-07-16 and I'll apply those in the refactor
-##PRIMARY DICTIONARY PROBLEM: 
-## for some reason I was thinking dictionaries could only hold a SINGLE {key: value} pair
-    #original statement was "hourtable.append({key : (doe, project)})"
-    #hourtable.append({key : [doe, project]})
     newrow.extend(key) #add key values to the new row
-    #newrow.extend(table[r][3:5]) #add employee & manager names to new row
     newrow.extend([doe, project]) #add total DOE & Project hours to new row
     hourtable.append(newrow) #add new row to table; Was hourtable.append([key, doe, project])
-    #newrow = (table[r][:5])
-    #hours = [doe, project] 
-    #newrow.extend(hours)
-    #hourtable.append(table[r][:5])
 end = time.time()  #End timer for creating 'Hourlist'
 durHourlist = end - start
 
