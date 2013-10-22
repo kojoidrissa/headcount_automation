@@ -131,7 +131,6 @@ for item in finaltable[1]:
     print finaltable[0][finaltable[1].index(item)], item, type(item), finaltable[1].index(item)
 ''' 
 
-    
                  
 #Writing that worksheet to a file
 start = time.time() #start Target final spreadsheet write to file timer
@@ -155,16 +154,3 @@ print "durFinalTableMem", durFinalTableMem
 print "Writing time for", dest_filename, " :", durFinalTableFile
 print len(finaltable),"Rows; ", len(finaltable[0]), "Columns"
 print "durTotal", durTotal
-
-###The rest of the file is unused. I need to look at that code to see if there's anything I can/want to salvage
-'''
-for k in range(len(keylist)):
-    for key in keylist:
-        print hourtable[k]
-'''
-#Pulling the hours out of the 'hours' list of dictionaries
-#Need to further smooth this out so I can write the values to their proper places in the spreadsheet
-'''for hr in range(len(hours[1][key])):
-    print hours[1][key][hr]
-        
-'''                        
