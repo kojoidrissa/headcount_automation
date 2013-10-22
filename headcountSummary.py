@@ -93,17 +93,7 @@ for key in keylist:
     hourtable.append(newrow) #add new row to table; Was hourtable.append([key, doe, project])
 end = time.time()  #End timer for creating 'Hourlist'
 durHourlist = end - start
-
-'''
-#I'm going to add the Unicode conversion code here
-unicode_rows = [u'Company', u'CC', u'Employee Num', u'Employee Name', u'Manager']
-for ur in table: #namespace issues with "r"; using 'ur' for 'Unicode Row' here
-    ri = table.index(ur) #THIS lets me avoid that 'range(len(nestedTable))' nonsense
-    for header in unicode_rows:
-        table[ri][unicode_rows.index(header)] = unicode(table[ri][unicode_rows.index(header)])
-#End of Unicode conversion code; 
-'''
-                
+               
 #Create final output table
 start = time.time() #start finaltable creation timer
 
@@ -117,18 +107,6 @@ for k in range(len(keylist)):
 
 end = time.time()  #End 'finaltable' timer
 durFinalTable = end - start
-
-#Set all columns except DOE & Project Hours to Unicode strings
-'''
-unicode_rows = [u'Company', u'CC', u'Employee Num', u'Employee Name', u'Manager']    
-for r in finaltable:
-    ri = finaltable.index(r) #THIS lets me avoid that 'range(len(nestedTable))' nonsense
-    for header in unicode_rows:
-        finaltable[ri][unicode_rows.index(header)] = unicode(finaltable[ri][unicode_rows.index(header)])
-
-#Are the values Unicode strings before they're written to the cells?
-print finaltable[:5]
-'''
 
 #Write final workbook to memory and save to file
 
