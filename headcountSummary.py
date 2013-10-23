@@ -18,9 +18,11 @@ end = time.time() #End Timer
 
 durLoad = end - start0 #duration to Load
 
+######Beginning of New 'Table' Function                 ######
+######OpenPyXl Workbook Object --> Nested list of lists ######
+######Purpose: put workbook values in a format Python can work with more easily ######
 #Building a list of lists; each internal list represents a row of data; should this be a function? Probably.
 start = time.time() #Start Table creation timer
-
 table = []
 
 #This will be less fragile if I take the following advice from Glen:
@@ -34,6 +36,7 @@ for row in range(len(source.rows)):
     table.append(r)
 end = time.time() #End Timer
 durTable = end - start
+######End of 'Table' function                           ######
 
 #Only for viewing profiling results
 print "Loading time for", source, ": ", durLoad
