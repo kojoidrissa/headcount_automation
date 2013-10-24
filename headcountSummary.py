@@ -18,9 +18,11 @@ end = time.time() #End Timer
 
 durLoad = end - start0 #duration to Load
 
-######Beginning of New 'worksheet_to_table' Function                            ######
-######OpenPyXl Worksheet Object --> Nested list of lists                        ######
-######Purpose: put workbook values in a format Python can work with more easily ######
+"""
+    Beginning of New 'worksheet_to_table' Function                            
+    OpenPyXl Worksheet Object --> Nested list of lists                        
+    Purpose: put workbook values in a format Python can work with more easily 
+"""
 #Building a list of lists; each internal list represents a row of data; should this be a function? Probably.
 start = time.time() #Start Table creation timer
 table = []
@@ -36,7 +38,7 @@ for row in range(len(source.rows)):
     table.append(r)
 end = time.time() #End Timer
 durTable = end - start
-######End of 'worksheet_to_table' function                                      ######
+"""End of 'worksheet_to_table' function"""
 
 #Only for viewing profiling results
 print "Loading time for", source, ": ", durLoad
@@ -49,15 +51,22 @@ start = time.time() #Start timer for creating 'Target' workbook
 target = Workbook()
 dest_filename = r'hdcntsum.xlsx'
 
-#regarding a question about relative paths
+# regarding a question about relative paths
 # both r'Downloads\hdcntsum.xlsx' and r'..\hdcntsum.xlsx worked
-#haven't tested networked drives yet
-#my theory is 
-    #r'..\..\..\M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\June 2013\Headcount Misc\hdcntsum.xlsx' SHOULD work
-#Maybe not: r'\hdcntsum.xlsx' saved the file to the ROOT drive; C:
-#OS Module may be the answer here as well
+# haven't tested networked drives yet
+# my theory is 
+#     r'..\..\..\M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\June 2013\Headcount Misc\hdcntsum.xlsx' SHOULD work
+# Maybe not: r'\hdcntsum.xlsx' saved the file to the ROOT drive; C:
+# OS Module may be the answer here as well
+       
 
-        
+"""
+    Function: create_keylist
+        list of lists --> list of lists 
+    takes 'table' (a list of lists) from worksheet_to_table
+    returns a nested list of keys; this should probably be a list of tuples
+
+"""
 #Creating list of keys
 #Each key is (as of 2013-07-16)a LIST made up of [Company Number, CC, EmpNum]. It SHOULD be
 #a TUPLE made up of (Company Number, CC, EmpNum). But I was having trouble with Tuples
@@ -71,9 +80,14 @@ for r in range(len(table)): #I need to change the range to (1, len(table)), to g
         keylist.append(newkey)
 end = time.time()  #End timer for creating 'Keylist' 
 durKeylist = end - start #durATION for Keylist
-                
+"""end create_keylist function"""
 
-#Comparing keylist items to table rows and calculating hour totals
+
+"""
+    Function: hourtable
+        keylist(list of lists), table(list of lists) --> hourtable(list of lists)
+    Comparing keylist items to table rows and calculating hour totals
+"""
 #using 'r' as shorthand for 'row', to avoid namespace confusion
 start = time.time() #start Hourtable timer
 hourtable = []
@@ -95,8 +109,15 @@ for key in keylist:
     hourtable.append(newrow) #add new row to table; Was hourtable.append([key, doe, project])
 end = time.time()  #End timer for creating 'Hourlist'
 durHourlist = end - start
-               
-#Create final output table
+"""end hourtable function"""
+
+
+"""
+    Function: finaltable
+        keylist(list of lists), table(list of lists), hourtable(list of lists) --> finaltable(list of lists)
+    Create final output table by matching rows b/w table and hourtable with keylist, then combining
+    those matched rows into the final output form
+"""
 start = time.time() #start finaltable creation timer
 
 finaltable =[]
@@ -109,6 +130,7 @@ for k in range(len(keylist)):
 
 end = time.time()  #End 'finaltable' timer
 durFinalTable = end - start
+"""end finaltable function"""
 
 #Write final workbook to memory and save to file
 
@@ -125,15 +147,6 @@ for row in finaltable:
 end = time.time() #End Target final spreadsheet write to memory timer
 durFinalTableMem = end - start
 
-#Finding out what data types are in the various columns
-#after I figured out how to get the indexes of the items I was finding the type for "finaltable[1].index(item)",
-#I plugged that in to get the header description from Row 0 of 'finaltable'
-'''
-for item in finaltable[1]:
-    print finaltable[0][finaltable[1].index(item)], item, type(item), finaltable[1].index(item)
-''' 
-
-                 
 #Writing that worksheet to a file
 start = time.time() #start Target final spreadsheet write to file timer
 
@@ -144,7 +157,7 @@ durFinalTableFile = end0 - start
 
 durTotal = end0 - start0 
 
-#Printing my timing variables
+#Printing my timer variables
 print "Loading time for", source, " :", durLoad
 print len(source.rows),"Rows; ", len(source.columns), "Columns"
 print "durTable", durTable
