@@ -214,7 +214,7 @@ print "Creation Time  for all Functional Tables was ", time2-time1, "seconds."
 
 ##Function 2: create_tabs
 time1 = time.time()
-for key in sheet_dict.keys():
+for key in sorted(sheet_dict.keys()):
     create_tabs(sheet_dict[key], key)
 create_tabs(fullTable, 'Headcount Summary Sorted')
 time2 = time.time()
