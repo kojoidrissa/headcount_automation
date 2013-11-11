@@ -154,7 +154,7 @@ Needed for each sheet
     -  Insert two columns b/w 'CC' and 'Employee Num'
         -  CC
         -  CC Description
-    -  Convert the CC numbers into text (`=TEXT(B2,"#")`) and 'paste values' those results in the first of the two added columns; include the 'CC' rows in your filter
+    -  Convert the CC numbers into text `=TEXT(B2,"#")` and 'paste values' those results in the first of the two added columns; include the 'CC' rows in your filter
         -  This is a stopgap measure. I need to figure out how to have the CC values come out AS strings, not numbers
     -  With the CC numbers in place, `VLookup` the Cost Center Descriptions and 'paste values' those results
 -  Use this updated version of Hdcnt Summary as the input for functionalSheets.py
