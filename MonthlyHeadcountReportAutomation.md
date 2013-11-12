@@ -133,14 +133,21 @@ Needed for each sheet
     -  This is the slowest part of the manual process, but still useful. Most managers don't know their Cost Center numbers. Neither do I!
 
 ####Style Guidelines for ALL sheets
--  Utilization columns: % formatted, no decimals
--  Hours columns: Accounting formatted, no decimals
--  Cost Center Headers & footers: **bold**
--  Align TEXT cells Left-Aligned; HOURS cells Right-Aligned
--  Print Optimization: Last Step
-    -  Page Header: *Month* **Year** Headcount Utilization Report; Tab
+1.  Print Optimization: Select ALL tabs and apply the following at once
+    -  Page Header: ALL BOLD; *Month* **Year** Headcount Utilization Report; Tab; blank
     -  Page Footer: Same as above, with "*#/##*" in right column
     -  Page Orientation: Landscape
+    -  Margins: Top/Bottom, 0.5"; Left/Right, 0.25"; Header/Footer, 0.25"
+    -  set to "Page Break Preview"; zoom back to 100%
+2.  Go to each sheet and do the following
+    3. Autocolumn width
+    -  Utilization columns: % formatted, no decimals
+    -  Hours columns: Accounting formatted, no decimals
+    -  Select all, autofilter; show blanks on Manager column, NO blanks on DOE column; bold footers
+        -  I need to fix THAT in code
+    -  Turn off filtering
+    -  Align TEXT cells Left-Aligned; HOURS/UTILIZATION cells Right-Aligned
+    -  Autocolumn width; final page break adjustment
 
 ###Version 1.0.1 (for running August reports in early September 2013)
 
