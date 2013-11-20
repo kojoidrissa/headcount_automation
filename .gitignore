@@ -2,3 +2,4 @@ test.py
 *.pyc
 *.sublime-workspace
 masterlog.txt
+*.xlsx
