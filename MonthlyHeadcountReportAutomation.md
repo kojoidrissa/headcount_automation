@@ -258,3 +258,4 @@ The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that do
 From within the Canopy shell:
 
 `cd 'M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\<MMMM> <YYYY>\Headcount Misc'`
+I need to focus on packaging this as a standalone app, not a collection of scripts.
