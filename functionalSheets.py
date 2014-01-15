@@ -297,8 +297,8 @@ def funcSheets_check_figures(d, ft):
 
     return exception_dict
 
-funcSheets_check_figures(sheet_dict, fullTable)
+problems = funcSheets_check_figures(sheet_dict, fullTable)
 
 target.save(dest_filename)
 
-print "There are", len(exception_dict), "exceptions."
+print "There are", len(problems), "exceptions."
