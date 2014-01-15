@@ -242,7 +242,7 @@ def funcSheets_check_figures(d):
     dict --> std output
 
     takes the final dictionary of worksheets, shows the number of DATA rows there should be in
-    each. Also calcuates the total number of DATA rows 'Headcount Summary Sorted' should have
+    each. Also calcuates the total number of DATA rows (which equals Employees) 'Headcount Summary Sorted' should have
     as well as the number of rows by which HSS & the total functional sheets differ
 
     '''
@@ -252,14 +252,14 @@ def funcSheets_check_figures(d):
     print "############################################"
 
     for key in d.keys():
-        print key, "has", len(d[key]), "rows of data."
+        print key, "has", len(d[key]), "employees."
 
     check_sum = 0
     for key in d.keys():
         check_sum = check_sum + len(d[key])
     print "********************************************"
-    print "Combined, the Functional Sheets have a total of", check_sum, "rows of data."
-    print "This is compared to", len(fullTable), "rows of data in Headcount Summary Sorted."
-    print "This means", len(fullTable) - check_sum, "rows of data from Headcount Summary aren't included in the functional sheets." 
+    print "Combined, the Functional Sheets have a total of", check_sum, "employees."
+    print "This is compared to", len(fullTable), "employees in Headcount Summary Sorted."
+    print "This means", len(fullTable) - check_sum, "employees from Headcount Summary aren't included in the functional sheets." 
     #I should include an IF here to change the sentence based on the difference direction
 funcSheets_check_figures(sheet_dict)
