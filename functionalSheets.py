@@ -230,20 +230,21 @@ import format
 format.bold_headers_footers(target)
 
 ##Writing that worksheet to a file
-target.save(dest_filename)
+##Moved later in file, so Exceptions sheet could be written
 
 
 end = time.time()
 dur = end - start
 print "Total processing time", dur
 
-def funcSheets_check_figures(d):
+def funcSheets_check_figures(d, ft):
     '''
-    dict --> std output
+    dict, fullTable --> dict
 
     takes the final dictionary of worksheets, shows the number of DATA rows there should be in
     each. Also calcuates the total number of DATA rows (which equals Employees) 'Headcount Summary Sorted' should have
-    as well as the number of rows by which HSS & the total functional sheets differ
+    as well as the number of rows by which HSS & the total functional sheets differ;
+    Returns a dict of {EmployeeNum: Utilziation Data for that Employee} to show who the exceptions are
 
     '''
 
@@ -259,7 +260,45 @@ def funcSheets_check_figures(d):
         check_sum = check_sum + len(d[key])
     print "********************************************"
     print "Combined, the Functional Sheets have a total of", check_sum, "employees."
-    print "This is compared to", len(fullTable), "employees in Headcount Summary Sorted."
-    print "This means", len(fullTable) - check_sum, "employees from Headcount Summary aren't included in the functional sheets." 
+    print "This is compared to", len(ft), "employees in Headcount Summary Sorted."
+    print "This means", len(ft) - check_sum, "employees from Headcount Summary aren't included in the functional sheets." 
     #I should include an IF here to change the sentence based on the difference direction
-funcSheets_check_figures(sheet_dict)
+
+    hss_employees = [] #hss stands for Headcount Summary Sorted, first tab in output 
+    for i in ft:
+        hss_employees.append(i[3])
+
+    hss_set = set(hss_employees)
+
+    ###Get list of Employee nums from sheet_dict
+    #func stands for Functional Areas, what I call each Cost Center group;
+    #Accounting, Structural Engineering, etc
+    func_employees = []  
+    for key in d.keys():
+        for i in d[key]:
+            func_employees.append([i][0][3])
+    func_set = set(func_employees)
+
+    exceptions = set.difference(hss_set, func_set)
+    print exceptions
+    len(exceptions)
+
+    exception_dict = {}
+    for x in sorted(exceptions):
+        for i in ft:
+            if i[3] == x:
+                exception_dict.update({x : i})
+
+    ws = target.create_sheet(0)
+    ws.title = "Exceptions"
+
+    for key in exception_dict:
+        ws.append(exception_dict[key])
+
+    return exception_dict
+
+funcSheets_check_figures(sheet_dict, fullTable)
+
+target.save(dest_filename)
+
+print "There are", len(exception_dict), "exceptions."
