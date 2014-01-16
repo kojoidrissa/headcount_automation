@@ -239,12 +239,12 @@ print "Total processing time", dur
 
 def funcSheets_check_figures(d, ft):
     '''
-    dict, fullTable --> dict
+    dict, list of lists --> dict of dicts
 
-    takes the final dictionary of worksheets, shows the number of DATA rows there should be in
-    each. Also calcuates the total number of DATA rows (which equals Employees) 'Headcount Summary Sorted' should have
-    as well as the number of rows by which HSS & the total functional sheets differ;
-    Returns a dict of {EmployeeNum: Utilziation Data for that Employee} to show who the exceptions are
+    takes the final dictionary of worksheets, shows the number of DATA rows(which equals Employees).
+    Also calcuates the total number of DATA rows (which equals Employees) 'Headcount Summary Sorted' should have
+    as well as the number of rows by which HSS & the total functional sheets differ.
+    Returns a dict of dictionaries of {EmployeeNum: [Utilziation Data for that Employee]} to show who the exceptions are
 
     '''
 
@@ -264,7 +264,13 @@ def funcSheets_check_figures(d, ft):
     print "This means", len(ft) - check_sum, "employees from Headcount Summary aren't included in the functional sheets." 
     #I should include an IF here to change the sentence based on the difference direction
 
-    hss_employees = [] #hss stands for Headcount Summary Sorted, first tab in output 
+    ###This is where the Exceptions sheet gets created
+    ###This code is too 'fragile', since I hard-coded index numbers for prototyping speed
+    ###I need to undo that to make the code more robust. It probably doesn't need to be anti-fragile
+    ###I'm not sure I'd know how to do that anyway.
+
+    ##Get list of employee numbers from fullTable; hss stands for Headcount Summary Sorted, first tab in output
+    hss_employees = []
     for i in ft:
         hss_employees.append(i[3])
 
@@ -279,10 +285,12 @@ def funcSheets_check_figures(d, ft):
             func_employees.append([i][0][3])
     func_set = set(func_employees)
 
+    ##Find the Exceptions as a difference between the sets
     exceptions = set.difference(hss_set, func_set)
     print exceptions
     len(exceptions)
 
+    ##create a dictionary of {employeeNum:[utilization data]}, to write to spreadsheet
     exception_dict = {}
     for x in sorted(exceptions):
         for i in ft:
@@ -295,6 +303,8 @@ def funcSheets_check_figures(d, ft):
     for key in exception_dict:
         ws.append(exception_dict[key])
 
+    ##I PROBABLY don't need to return anything, since I'm writing the sheet inside the function
+    ##But it does make printing the final message convenient. Immediate feedback.
     return exception_dict
 
 problems = funcSheets_check_figures(sheet_dict, fullTable)
