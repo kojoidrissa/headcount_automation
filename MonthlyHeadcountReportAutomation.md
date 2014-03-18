@@ -258,4 +258,55 @@ The `ref = (3, 2, 0, 10, 4, 17, 21)` line needs to be replaced with code that do
 From within the Canopy shell:
 
 `cd 'M:\Dbsteam\BUDGET\Jackie\MNTH_RPT\2013\<MMMM> <YYYY>\Headcount Misc'`
-I need to focus on packaging this as a standalone app, not a collection of scripts. Here's a potential solution: [PyInstaller](http://www.meetup.com/python-14/events/166696572/) 
+I need to focus on packaging this as a standalone app, not a collection of scripts. Here's a potential solution: [PyInstaller](http://www.meetup.com/python-14/events/166696572/)
+
+
+##Speed Notes
+
+###Output from 2014-03-18 14:33 run (on 2 months of data)
+%run C:/Users/kidrissa/projects/headcount_automation/headcountSummary.py
+
+        Loading time for <Worksheet "raw data"> :  28.7030000687
+        Time to create 'Table' from  <Worksheet "raw data"> for 13851 rows and  22 columns:  1.09299993515
+        Loading time for <Worksheet "raw data">  : 28.7030000687
+        13851 Rows;  22 Columns
+        durTable 1.09299993515
+        13851 Rows;  7 Columns
+        durKeylist 0.292000055313
+        durHourlist 1.84399986267
+        durFinalTable 2.49699997902
+        durFinalTableMem 0.0480000972748
+        Writing time for hdcntsum.xlsx  : 0.381000041962
+        306 Rows;  7 Columns
+        durTotal 36.2130000591
+
+
+%run C:/Users/kidrissa/projects/headcount_automation/functionalSheets.py
+
+        fullTable Creation Time was  12.1420001984 seconds.
+        Creation Time  for all Functional Tables was  20.8139998913 seconds.
+        Creation Time for ALL tabs was  0.262000083923 seconds.
+        Total processing time 33.4340000153
+        ############################################
+        CHECK FIGURES
+        ############################################
+        Project Controls has 21 employees.
+        Human Resources has 14 employees.
+        IT Services has 7 employees.
+        Legal has 3 employees.
+        Estimation & Sales has 11 employees.
+        Procurement has 11 employees.
+        Engineering has 12 employees.
+        Subsea has 82 employees.
+        Accounting has 27 employees.
+        Ethics has 1 employees.
+        HSES has 3 employees.
+        Quality has 4 employees.
+        Project Management has 78 employees.
+        ********************************************
+        Combined, the Functional Sheets have a total of 274 employees.
+        This is compared to 305 employees in Headcount Summary Sorted.
+        This means 31 employees from Headcount Summary aren't included in the functional sheets.
+        set([u'Moyer, Gregg A', u'Sparks, Robert L', u'Khalidi, Tarek S', u'Rodrigue, Joey P', u'Talamo, Emil', u'Gauthreaux, Brian P', u'Wei, Bo-Siou', u'Lirette, Kent P', u'Aden, Gerard M', u'Ramchandani, Abhishek A', u'Kershenbaum, Naum Y', u'LaHaye, Natalie E', u'Filer, Harold B', u'Pierce, Ray J', u'Ramnarine-Rambally, Elizabeth N', u'Reinsvold, Nickolas A', u'Fruge III, Noah', u'Sindelar Jr, Joseph M', u'English, Alexander M', u'McNaughton, Jerry D', u'Calkins, Nicholas J', u'Toups, Marilyn C', u'Pathi, Soumya S', u'Kumar, Sandeep S', u'Suschitz, Wai-Fong L', u'Gros, Warren A', u'Shipley, Christopher E', u'Yates, Sandra L', u'Guynn, Richard C', u'Hebert, Wayne P', u'Heilman, Robert E'])
+        There are 31 exceptions.
+
