@@ -52,7 +52,12 @@ header.extend(['Tot. Hours', 'DOE Util %', 'Proj. Util %'])
 ##This function is intended to create a table of the ENTIRE contents of the headcount summary file
 fullTable = []
 time1 = time.time()
-for row in source.rows[1:]: #trying to work around problem with 1st and last rows; was 'for row in source.rows'
+
+##The 'Monthly Headcount Summary' tab in 'hdcntsum.xlsx' has 0 in columns F&G (index[5]&[6] in Python) 
+##in the first and last row. Until I figure out how to STOP that, I'm slicing off those rows.
+##Truth be told, I don't NEED them. Well, I MIGHT need the first row for header names. To make the
+##design less fragile
+for row in source.rows[1:-1]: #trying to work around problem with 1st and last rows; was 'for row in source.rows'
     ri = source.rows.index(row)
     temprow = []
     for cell in row:

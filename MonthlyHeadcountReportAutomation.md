@@ -310,3 +310,30 @@ I need to focus on packaging this as a standalone app, not a collection of scrip
         set([u'Moyer, Gregg A', u'Sparks, Robert L', u'Khalidi, Tarek S', u'Rodrigue, Joey P', u'Talamo, Emil', u'Gauthreaux, Brian P', u'Wei, Bo-Siou', u'Lirette, Kent P', u'Aden, Gerard M', u'Ramchandani, Abhishek A', u'Kershenbaum, Naum Y', u'LaHaye, Natalie E', u'Filer, Harold B', u'Pierce, Ray J', u'Ramnarine-Rambally, Elizabeth N', u'Reinsvold, Nickolas A', u'Fruge III, Noah', u'Sindelar Jr, Joseph M', u'English, Alexander M', u'McNaughton, Jerry D', u'Calkins, Nicholas J', u'Toups, Marilyn C', u'Pathi, Soumya S', u'Kumar, Sandeep S', u'Suschitz, Wai-Fong L', u'Gros, Warren A', u'Shipley, Christopher E', u'Yates, Sandra L', u'Guynn, Richard C', u'Hebert, Wayne P', u'Heilman, Robert E'])
         There are 31 exceptions.
 
+###Output from 5/6/2014 run (on March 2014 data)
+fullTable Creation Time was  9.50600004196 seconds.
+Creation Time  for all Functional Tables was  16.9290001392 seconds.
+Creation Time for ALL tabs was  0.269999980927 seconds.
+Total processing time 26.9379999638
+############################################
+CHECK FIGURES
+############################################
+Project Controls has 20 employees.
+Human Resources has 7 employees.
+IT Services has 7 employees.
+Legal has 3 employees.
+Estimation & Sales has 10 employees.
+Procurement has 13 employees.
+Engineering has 5 employees.
+Subsea has 92 employees.
+Accounting has 27 employees.
+Ethics has 1 employees.
+HSES has 3 employees.
+Quality has 3 employees.
+Project Management has 70 employees.
+********************************************
+Combined, the Functional Sheets have a total of 261 employees.
+This is compared to 272 employees in Headcount Summary Sorted.
+This means 11 employees from Headcount Summary aren't included in the functional sheets.
+set([u'Kumar, Sandeep S', u'Gros, Warren A', u'Henderson, Neil S', u'Lirette, Kent P', u'Fruge III, Noah', u'Gauthreaux, Brian P', u'Hebert, Wayne P', u'Filer, Harold B', u'Walker, William A', u'Toups, Marilyn C', u'Barnett, Robert P'])
+There are 11 exceptions.
