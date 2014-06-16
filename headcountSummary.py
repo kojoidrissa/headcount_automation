@@ -105,7 +105,7 @@ for key in keylist:
     newrow =[]
     for r in range(len(table)):
         if key == table[r][:3]: #Tuple version: 'if key == tuple(table[r][:3])'
-            if table[r][5] == 'DOE':
+            if table[r][5] == 'DOE': """CHANGE TO 'NON-PROJECT' IN UPDATE"""
                 doe = doe + table[r][6]
             elif table[r][5] == 'Project':
                 project = project + table[r][6]
