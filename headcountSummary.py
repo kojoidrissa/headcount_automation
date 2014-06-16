@@ -88,6 +88,11 @@ durKeylist = end - start #durATION for Keylist
         keylist(list of lists), table(list of lists) --> hourtable(list of lists)
     Comparing keylist items to table rows and calculating hour totals
 """
+    """
+        THIS IS THE FUNCTION THAT NEEDS TO BE UPDATED TO SHOW TIME SPLIT into
+        three CATEGORIES (Proj/non-Proj/ATO) INSTEAD OF two
+    """
+
 #using 'r' as shorthand for 'row', to avoid namespace confusion
 start = time.time() #start Hourtable timer
 hourtable = []
