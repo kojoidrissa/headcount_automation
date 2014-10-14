@@ -42,7 +42,7 @@ durTable = end - start
 
 #Only for viewing profiling results
 print "Loading time for", source, ": ", durLoad, "seconds"
-print "Time to create 'Table' from ",source, "for", len(source.rows), "rows and ", len(source.columns), "columns: ", durTable
+print "Time to create 'Table' from ",source, "for", len(source.rows), "rows and ", len(source.columns), "columns: ", durTable, "seconds"
 
 
 #Creating a spreadsheet in memory; Writing results to it (in memory)
