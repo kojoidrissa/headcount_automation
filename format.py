@@ -1,6 +1,7 @@
 #!python
 
 #Makes Headers and Footers Bold
+#I need to improve this code
 def bold_headers_footers(target):
 	'''
 	OpenPyXL Workbook --> OpenPyXL Workbook
