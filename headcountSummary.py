@@ -41,7 +41,7 @@ durTable = end - start
 """End of 'worksheet_to_table' function"""
 
 #Only for viewing profiling results
-print "Loading time for", source, ": ", durLoad
+print "Loading time for", source, ": ", durLoad, "seconds"
 print "Time to create 'Table' from ",source, "for", len(source.rows), "rows and ", len(source.columns), "columns: ", durTable
 
 
@@ -162,15 +162,14 @@ durFinalTableFile = end0 - start
 
 durTotal = end0 - start0 
 
-#Printing my timer variables
-print "Loading time for", source, " :", durLoad
+#Printing my timer variables, the first 2 are at lines 44/45
 print len(source.rows),"Rows; ", len(source.columns), "Columns"
-print "durTable", durTable
+print "durTable", durTable, "seconds"
 print len(table),"Rows; ", len(table[0]), "Columns"
-print "durKeylist", durKeylist
-print "durHourlist", durHourlist
-print "durFinalTable", durFinalTable
-print "durFinalTableMem", durFinalTableMem
-print "Writing time for", dest_filename, " :", durFinalTableFile
+print "durKeylist", durKeylist, "seconds"
+print "durHourlist", durHourlist, "seconds"
+print "durFinalTable", durFinalTable, "seconds"
+print "durFinalTableMem", durFinalTableMem, "seconds"
+print "Writing time for", dest_filename, " :", durFinalTableFile, "seconds"
 print len(finaltable),"Rows; ", len(finaltable[0]), "Columns"
-print "durTotal", durTotal
+print "durTotal", durTotal, "seconds"
