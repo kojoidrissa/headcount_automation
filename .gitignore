@@ -3,3 +3,4 @@ test.py
 *.sublime-workspace
 masterlog.txt
 *.xlsx
+.DS_Store
