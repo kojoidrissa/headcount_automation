@@ -32,7 +32,7 @@ table = []
     #include code that will throw a VISIBLE exception if a needed column is missing
 for row in range(len(source.rows)):
     r =[]
-    ref = (3, 2, 0, 10, 4, 17, 21) 
+    ref = (3, 2, 0, 10, 4, 17, 21, 7) 
     for col in ref: #Original "in" argument was 'range(len(source.columns))'
         r.append(source.cell(row = row, column = col).value)
     table.append(r)
