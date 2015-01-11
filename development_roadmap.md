@@ -4,7 +4,7 @@
 -  make `worksheet_to_table` function more robust with Glenn Z.'s suggestions:
     -  Use column/header names to ID the source data columns
         -  I'll probably need to create a tuple of strings to contain the headers; then the code can cycle through those & find their indices
-        -  I'll also need to get a virtualenv setup in this folder to use Python 2.7 and install OpenPyXL and whatever other libraries I'll need. I need to ask Chris Cauley about Git tracking a Virtualenv tomorrow.
+        -  I'll also need to get a virtualenv setup in this folder to use Python 2.7 and install OpenPyXL and whatever other libraries I'll need. I need to ask Chris Cauley about Git tracking a Virtualenv tomorrow(2015-01-11).
     -  Include code that will throw a VISIBLE exception if a needed column is missing
         -  v. 1: print to StdOut; stop the program; log the exception somewhere (a log file?)
         -  v. 2: create an Alert box in the GUI; log the exception somewhere (a log file?)
