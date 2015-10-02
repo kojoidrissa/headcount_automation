@@ -12,6 +12,7 @@ import time
 #starting timer; basic performance profiling
 start0 = time.time() #Start Loading Timer
 
+#I should be able to use `yield` here to cut down time. We'll see
 wb = load_workbook(filename = r'Kronos Headcount Report_working.xlsx')
 source = wb.get_sheet_by_name('raw data')
 end = time.time() #End Timer
